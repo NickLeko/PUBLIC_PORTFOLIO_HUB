@@ -254,11 +254,12 @@ main {
 .hero-main::after {
   content: "";
   position: absolute;
-  top: -120px;
-  right: -100px;
-  width: 320px;
-  height: 320px;
-  background: radial-gradient(circle, rgba(123, 226, 255, 0.12), transparent 68%);
+  top: 52px;
+  right: 42px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(123, 226, 255, 0.11), rgba(123, 226, 255, 0.03) 34%, transparent 70%);
   pointer-events: none;
 }
 
@@ -278,12 +279,12 @@ main {
 }
 
 .hero-title {
-  margin: 20px 0 16px;
-  max-width: 10.5ch;
+  margin: 18px 0 14px;
+  max-width: 12.3ch;
   font-family: var(--font-display);
-  font-size: clamp(3.1rem, 6vw, 5.8rem);
+  font-size: clamp(3rem, 5.35vw, 5.35rem);
   font-weight: 700;
-  line-height: 0.9;
+  line-height: 0.91;
   letter-spacing: -0.06em;
   background: linear-gradient(90deg, #f5f8fb 0%, #a5c5ff 36%, #7be2ff 68%, #9fded6 100%);
   -webkit-background-clip: text;
@@ -293,7 +294,7 @@ main {
 
 .hero-copy {
   margin: 0;
-  max-width: 60ch;
+  max-width: 54ch;
   color: var(--muted-strong);
   font-size: 1.02rem;
 }
@@ -302,7 +303,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 22px;
+  margin-top: 20px;
 }
 
 .hero-pillar {
@@ -327,13 +328,13 @@ main {
 }
 
 .hero-actions {
-  margin-top: 22px;
+  margin-top: 20px;
 }
 
 .hero-footnote {
-  margin-top: 18px;
-  max-width: 60ch;
-  padding-top: 16px;
+  margin-top: 16px;
+  max-width: 54ch;
+  padding-top: 14px;
   border-top: 1px solid rgba(166, 208, 232, 0.08);
   color: var(--muted);
   font-size: 0.92rem;
