@@ -45,7 +45,7 @@
       title:
         "Governed healthcare AI for review, routing, and admin workflows.",
       intro:
-        "My public portfolio centers on healthcare-native product work for review, oversight, and workflow realism: prior auth readiness support, clinical-style LLM evaluation, and ICU alert-policy analysis. The common thread is governed AI with explicit limits, auditability, and human review built in.",
+        "My public portfolio centers on healthcare-native product work for review, oversight, and workflow realism: prior auth readiness support, clinical-style LLM evaluation, and ICU alert-policy analysis. The common thread is governed AI with explicit limits, auditability, and human review.",
       note:
         "The through-line is simple: admin automation where it helps, rules before LLMs when stakes are high, and explicit limits everywhere.",
       pillars: [
