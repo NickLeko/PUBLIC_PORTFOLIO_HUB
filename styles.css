@@ -90,7 +90,6 @@ img {
   position: sticky;
   top: 0;
   z-index: 10;
-  position: sticky;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -333,6 +332,7 @@ main {
 
 .hero-footnote {
   margin-top: 18px;
+  max-width: 60ch;
   padding-top: 16px;
   border-top: 1px solid rgba(166, 208, 232, 0.08);
   color: var(--muted);
@@ -1016,6 +1016,7 @@ main {
   color: var(--muted);
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.76rem;
+  overflow-wrap: anywhere;
 }
 
 .site-footer {
@@ -1096,7 +1097,12 @@ main {
 
   .site-nav {
     width: 100%;
-    gap: 8px;
+    gap: 6px 8px;
+  }
+
+  .site-nav a {
+    min-height: 34px;
+    padding: 7px 11px;
   }
 
   .flagship-core-grid,
