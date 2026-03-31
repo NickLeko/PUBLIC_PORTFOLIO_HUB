@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alert policy comparison</title>
+    <link rel="stylesheet" href="../capture_pages.css">
+  </head>
+  <body>
+    <main class="capture-shell">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">ICU Code Blue Early Warning</p>
+          <h1 class="page-title">Alert policy comparison</h1>
+          <p class="page-lede">Alert-policy view rendered from the checked-in reference run to make workload tradeoffs visible. The point is not just ranking quality; it is whether the alert budget is discussable.</p>
+        </div>
+        <div class="pill-row"><span class="pill"><strong>Best precision</strong> 0.264%</span><span class="pill"><strong>Lowest alert ratio</strong> 0.255</span><span class="pill"><strong>Cooldown</strong> 12h</span></div>
+      </header>
+      
+      <section class="metric-grid">
+        
+    <article class="metric-card">
+      <span class="metric-label">Naive alerts</span>
+      <span class="metric-value">10,391</span>
+      <div class="metric-note">Top 0.5% threshold without policy shaping</div>
+    </article>
+  
+        
+    <article class="metric-card">
+      <span class="metric-label">First crossing</span>
+      <span class="metric-value">3,350</span>
+      <div class="metric-note">Same cooldown with first-crossing policy</div>
+    </article>
+  
+        
+    <article class="metric-card">
+      <span class="metric-label">Debounced alerts</span>
+      <span class="metric-value">2,650</span>
+      <div class="metric-note">Additional debounce to cut repeat alerts</div>
+    </article>
+  
+        
+    <article class="metric-card">
+      <span class="metric-label">Held-out positives</span>
+      <span class="metric-value">310</span>
+      <div class="metric-note">Positive rows in the held-out split</div>
+    </article>
+  
+      </section>
+
+      <section class="layout-grid">
+        <article class="panel">
+          <h2>Policy table</h2>
+          
+    <table>
+      <thead>
+        <tr><th>Policy</th><th>Alerts</th><th>Positive windows</th><th>Precision</th><th>Alert ratio vs naive</th></tr>
+      </thead>
+      <tbody>
+        
+              <tr><td>naive top 0 5pct</td><td>10,391</td><td>21</td><td>0.202%</td><td>1.000</td></tr>
+            
+              <tr><td>first crossing</td><td>3,350</td><td>8</td><td>0.239%</td><td>0.322</td></tr>
+            
+              <tr><td>debounced first crossing</td><td>2,650</td><td>7</td><td>0.264%</td><td>0.255</td></tr>
+            
+      </tbody>
+    </table>
+  
+        </article>
+
+        <article class="panel">
+          <h2>Why this artifact matters</h2>
+          <div class="stack">
+            <article class="excerpt-card">
+              <h3>Alert budgets stay visible</h3>
+              <p class="excerpt-text">
+                The reference run reports 10,391 raw alerts at the naive top 0.5% threshold.
+                Policy shaping cuts that to 2,650 with the debounced policy.
+              </p>
+            </article>
+            <article class="excerpt-card">
+              <h3>Precision is still modest</h3>
+              <p class="excerpt-text">
+                Even the best checked policy stays in retrospective, low-prevalence territory at 0.264%. That boundary belongs in the artifact, not hidden in footnotes.
+              </p>
+            </article>
+            <article class="excerpt-card">
+              <h3>Scope boundary</h3>
+              <p class="excerpt-text">
+                This remains a held-out-hospital ranking study using a chart-derived proxy label. It is useful for reasoning about tradeoffs, not for claiming clinical deployment readiness.
+              </p>
+            </article>
+          </div>
+        </article>
+      </section>
+    
+      <p class="footer-note">Source files: artifacts/reference_run/03_reference_run_alert_policy.csv and companion reference-run exports. No patient-level data are redistributed here.</p>
+    </main>
+  </body>
+</html>

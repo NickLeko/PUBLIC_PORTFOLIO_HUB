@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 960" role="img" aria-labelledby="title desc">
+  <title id="title">ICU reviewer export placeholder screenshot</title>
+  <desc id="desc">Placeholder graphic for an aggregate reviewer export or proof artifact from the ICU case study.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c1519"/>
+      <stop offset="100%" stop-color="#112028"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="960" fill="url(#bg)"/>
+  <rect x="56" y="56" width="1488" height="848" rx="36" fill="#101d24" stroke="#355159" stroke-width="2"/>
+  <rect x="110" y="118" width="390" height="42" rx="21" fill="#193039"/>
+  <rect x="110" y="198" width="1318" height="550" rx="28" fill="#142831" stroke="#31505a" stroke-width="2"/>
+  <rect x="158" y="252" width="1220" height="62" rx="18" fill="#17313a"/>
+  <rect x="158" y="336" width="1220" height="62" rx="18" fill="#17313a"/>
+  <rect x="158" y="420" width="1220" height="62" rx="18" fill="#17313a"/>
+  <rect x="158" y="504" width="1220" height="62" rx="18" fill="#17313a"/>
+  <rect x="158" y="588" width="1220" height="62" rx="18" fill="#17313a"/>
+  <rect x="196" y="270" width="300" height="24" rx="12" fill="#8ed6c8" fill-opacity=".18"/>
+  <rect x="632" y="270" width="220" height="24" rx="12" fill="#d3c49f" fill-opacity=".2"/>
+  <rect x="920" y="270" width="170" height="24" rx="12" fill="#23414b"/>
+  <rect x="1140" y="270" width="180" height="24" rx="12" fill="#23414b"/>
+  <text x="110" y="836" fill="#d3c49f" font-family="IBM Plex Sans, Arial, sans-serif" font-size="44" font-weight="600">
+    Placeholder slot: add an aggregate reviewer export, model-weight proof, or results table image.
+  </text>
+</svg>

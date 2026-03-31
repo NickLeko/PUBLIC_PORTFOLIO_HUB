@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 960" role="img" aria-labelledby="title desc">
+  <title id="title">Clinical AI Eval reviewer artifact placeholder</title>
+  <desc id="desc">Placeholder graphic for a reviewer guide or flagged case screenshot.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c161a"/>
+      <stop offset="100%" stop-color="#122027"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="960" fill="url(#bg)"/>
+  <rect x="58" y="58" width="1484" height="844" rx="36" fill="#111f25" stroke="#35515a" stroke-width="2"/>
+  <rect x="110" y="118" width="420" height="42" rx="21" fill="#193039"/>
+  <rect x="110" y="198" width="956" height="560" rx="28" fill="#142831" stroke="#31505a" stroke-width="2"/>
+  <rect x="1108" y="198" width="322" height="560" rx="28" fill="#142831" stroke="#31505a" stroke-width="2"/>
+  <rect x="160" y="250" width="184" height="28" rx="14" fill="#8ed6c8" fill-opacity=".18"/>
+  <rect x="160" y="318" width="730" height="18" rx="9" fill="#2b4c57"/>
+  <rect x="160" y="356" width="666" height="18" rx="9" fill="#243f49"/>
+  <rect x="160" y="430" width="856" height="150" rx="22" fill="#18313a"/>
+  <rect x="160" y="612" width="856" height="92" rx="22" fill="#17313a"/>
+  <rect x="1158" y="250" width="220" height="150" rx="22" fill="#17313a"/>
+  <rect x="1158" y="432" width="220" height="110" rx="22" fill="#17313a"/>
+  <rect x="1158" y="574" width="220" height="110" rx="22" fill="#17313a"/>
+  <text x="110" y="846" fill="#d3c49f" font-family="IBM Plex Sans, Arial, sans-serif" font-size="44" font-weight="600">
+    Placeholder slot: add a flagged-case example, reviewer guide, or artifact walkthrough screenshot.
+  </text>
+</svg>

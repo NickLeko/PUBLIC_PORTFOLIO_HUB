@@ -1,0 +1,12 @@
+{
+  "name": "public-portfolio-hub",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "screenshots:capture": "node scripts/capture_screenshots.js",
+    "screenshots:check": "node scripts/check_screenshots.js"
+  },
+  "dependencies": {
+    "playwright": "^1.58.2"
+  }
+}

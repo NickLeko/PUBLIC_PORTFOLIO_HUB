@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nicholas Leko | Flagship One-Pager</title>
+  <meta
+    name="description"
+    content="Printable one-page summary of Nicholas Leko's flagship healthcare AI portfolio projects."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="flagship_one_pager.css">
+</head>
+<body>
+  <div class="page-actions">
+    <a class="action-link" href="../index.html">Back to portfolio</a>
+    <button class="action-link action-button" type="button" onclick="window.print()">Print / Save as PDF</button>
+  </div>
+
+  <main id="one-pager" class="one-pager" aria-label="Flagship portfolio one-pager"></main>
+
+  <script src="../data/projects.js"></script>
+  <script>
+    (function renderOnePager() {
+      const data = window.PORTFOLIO_DATA;
+
+      if (!data) {
+        throw new Error("Portfolio data failed to load.");
+      }
+
+      const root = document.getElementById("one-pager");
+
+      function escapeHtml(value) {
+        return String(value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
+
+      const projectCards = data.flagshipProjects
+        .map(
+          (project) => `
+            <article class="project-card">
+              <div class="project-top">
+                <div>
+                  <p class="project-status">${escapeHtml(project.status)}</p>
+                  <h2>${escapeHtml(project.title)}</h2>
+                </div>
+                <span class="project-boundary">${escapeHtml(project.scopeLabel)}</span>
+              </div>
+              <p class="project-summary">${escapeHtml(project.onePagerSummary)}</p>
+              <p class="project-proof"><strong>Why it stands out:</strong> ${escapeHtml(project.onePagerWhy)}</p>
+              <div class="signal-row">
+                ${project.onePagerSignals
+                  .map((signal) => `<span class="signal-pill">${escapeHtml(signal)}</span>`)
+                  .join("")}
+              </div>
+            </article>
+          `
+        )
+        .join("");
+
+      const themeCards = data.onePager.themes
+        .map(
+          (theme) => `
+            <article class="theme-card">
+              <h3>${escapeHtml(theme.title)}</h3>
+              <p>${escapeHtml(theme.body)}</p>
+            </article>
+          `
+        )
+        .join("");
+
+      const fitItems = data.onePager.forwardFor
+        .map((item) => `<li>${escapeHtml(item)}</li>`)
+        .join("");
+
+      const linkLine = data.site.links
+        .map((link) => `<a href="${escapeHtml(link.url)}">${escapeHtml(link.label)}</a>`)
+        .join('<span class="divider">|</span>');
+
+      root.innerHTML = `
+        <header class="one-pager-header">
+          <div class="header-main">
+            <p class="eyebrow">${escapeHtml(data.onePager.kicker)}</p>
+            <h1>${escapeHtml(data.site.owner)}</h1>
+            <p class="subtitle">${escapeHtml(data.onePager.headline)}</p>
+            <p class="profile">${escapeHtml(data.onePager.profile)}</p>
+          </div>
+
+          <aside class="share-panel">
+            <p class="share-title">${escapeHtml(data.onePager.forwardForTitle)}</p>
+            <ul class="share-list">${fitItems}</ul>
+            <p class="share-links">${linkLine}</p>
+          </aside>
+        </header>
+
+        <section class="grid-shell">
+          <section class="left-column">
+            <div class="section-block">
+              <p class="eyebrow">Flagship projects</p>
+              <div class="project-stack">${projectCards}</div>
+            </div>
+          </section>
+
+          <aside class="right-column">
+            <div class="section-block">
+              <p class="eyebrow">${escapeHtml(data.onePager.themesTitle)}</p>
+              <div class="theme-stack">${themeCards}</div>
+            </div>
+
+            <div class="section-block note-block">
+              <p class="eyebrow">Claim discipline</p>
+              <p>${escapeHtml(data.onePager.footerNote)}</p>
+            </div>
+          </aside>
+        </section>
+      `;
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 960" role="img" aria-labelledby="title desc">
+  <title id="title">ICU alert policy placeholder screenshot</title>
+  <desc id="desc">Placeholder graphic for an operating-point or alert-rate artifact from the ICU case study.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1518"/>
+      <stop offset="100%" stop-color="#132027"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="960" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1480" height="840" rx="36" fill="#111d23" stroke="#355159" stroke-width="2"/>
+  <rect x="110" y="116" width="438" height="42" rx="21" fill="#193039"/>
+  <rect x="110" y="198" width="908" height="564" rx="28" fill="#142831" stroke="#31505a" stroke-width="2"/>
+  <rect x="1058" y="198" width="372" height="564" rx="28" fill="#142831" stroke="#31505a" stroke-width="2"/>
+  <polyline points="170,620 310,540 450,574 590,428 730,452 870,310 958,348" fill="none" stroke="#8ed6c8" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="170" cy="620" r="12" fill="#8ed6c8"/>
+  <circle cx="310" cy="540" r="12" fill="#8ed6c8"/>
+  <circle cx="450" cy="574" r="12" fill="#8ed6c8"/>
+  <circle cx="590" cy="428" r="12" fill="#8ed6c8"/>
+  <circle cx="730" cy="452" r="12" fill="#8ed6c8"/>
+  <circle cx="870" cy="310" r="12" fill="#8ed6c8"/>
+  <circle cx="958" cy="348" r="12" fill="#8ed6c8"/>
+  <rect x="1122" y="252" width="244" height="150" rx="22" fill="#17313a"/>
+  <rect x="1122" y="432" width="244" height="110" rx="22" fill="#17313a"/>
+  <rect x="1122" y="574" width="244" height="110" rx="22" fill="#17313a"/>
+  <text x="110" y="844" fill="#d3c49f" font-family="IBM Plex Sans, Arial, sans-serif" font-size="44" font-weight="600">
+    Placeholder slot: add an operating-point table, alert-rate chart, or first-crossing analysis image.
+  </text>
+</svg>

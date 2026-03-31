@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 960" role="img" aria-labelledby="title desc">
+  <title id="title">Prior Authorization Copilot placeholder screenshot</title>
+  <desc id="desc">Placeholder graphic indicating where to drop a policy panel or rule monitoring screenshot.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c171d"/>
+      <stop offset="100%" stop-color="#14242b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="960" fill="url(#bg)"/>
+  <rect x="56" y="56" width="1488" height="848" rx="36" fill="#102028" stroke="#36535c" stroke-width="2"/>
+  <rect x="112" y="120" width="390" height="42" rx="21" fill="#193039"/>
+  <rect x="112" y="194" width="560" height="24" rx="12" fill="#274551"/>
+  <rect x="112" y="238" width="420" height="24" rx="12" fill="#213a44"/>
+  <rect x="112" y="318" width="534" height="248" rx="28" fill="#142a33" stroke="#32505a" stroke-width="2"/>
+  <rect x="112" y="600" width="534" height="172" rx="28" fill="#13262e" stroke="#31505a" stroke-width="2"/>
+  <rect x="698" y="194" width="782" height="578" rx="28" fill="#13262e" stroke="#31505a" stroke-width="2"/>
+  <rect x="748" y="246" width="190" height="32" rx="16" fill="#8ed6c8" fill-opacity=".16"/>
+  <rect x="748" y="320" width="520" height="20" rx="10" fill="#2b4c57"/>
+  <rect x="748" y="360" width="462" height="20" rx="10" fill="#233f49"/>
+  <rect x="748" y="432" width="684" height="118" rx="24" fill="#18313b"/>
+  <rect x="748" y="582" width="326" height="126" rx="24" fill="#173039"/>
+  <rect x="1100" y="582" width="332" height="126" rx="24" fill="#173039"/>
+  <text x="112" y="842" fill="#d3c49f" font-family="IBM Plex Sans, Arial, sans-serif" font-size="44" font-weight="600">
+    Placeholder slot: add a rule panel, monitoring view, or letter draft screenshot here.
+  </text>
+</svg>

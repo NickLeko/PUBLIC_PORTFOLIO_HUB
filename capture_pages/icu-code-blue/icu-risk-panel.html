@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reference run risk panel</title>
+    <link rel="stylesheet" href="../capture_pages.css">
+  </head>
+  <body>
+    <main class="capture-shell">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">ICU Code Blue Early Warning</p>
+          <h1 class="page-title">Reference run risk panel</h1>
+          <p class="page-lede">Retrospective case-study artifact rendered from the checked-in reference run. This is about offline operating points and alert policy judgment, not a deployed clinical system.</p>
+        </div>
+        <div class="pill-row"><span class="pill"><strong>Held-out hospitals</strong> 31</span><span class="pill"><strong>Test rows</strong> 2,078,011</span><span class="pill"><strong>Source</strong> reference_run CSVs</span></div>
+      </header>
+      
+      <section class="metric-grid">
+        
+    <article class="metric-card">
+      <span class="metric-label">ROC AUC</span>
+      <span class="metric-value">0.638</span>
+      <div class="metric-note">Held-out hospital test split</div>
+    </article>
+  
+        
+    <article class="metric-card">
+      <span class="metric-label">Log loss</span>
+      <span class="metric-value">0.0027</span>
+      <div class="metric-note">Reference run BigQuery ML evaluation</div>
+    </article>
+  
+        
+    <article class="metric-card">
+      <span class="metric-label">Top 0.5% alerts</span>
+      <span class="metric-value">10,391</span>
+      <div class="metric-note">Alert windows at the checked operating point</div>
+    </article>
+  
+        
+    <article class="metric-card">
+      <span class="metric-label">Enrichment</span>
+      <span class="metric-value">13.55x</span>
+      <div class="metric-note">Lift over raw test prevalence</div>
+    </article>
+  
+      </section>
+
+      <section class="layout-grid">
+        <article class="panel">
+          <h2>Reference operating point</h2>
+          
+    <table>
+      <thead>
+        <tr><th>Metric</th><th>Value</th><th>Context</th></tr>
+      </thead>
+      <tbody>
+        
+              <tr><td>Positive windows</td><td>21</td><td>Positive windows captured in the top 0.5% slice</td></tr>
+            
+              <tr><td>Precision</td><td>0.202%</td><td>Window-level precision in the top alert budget</td></tr>
+            
+              <tr><td>Test prevalence</td><td>0.015%</td><td>Rare-event base rate on the held-out split</td></tr>
+            
+              <tr><td>Positive test rows</td><td>310</td><td>Rows labeled positive in the held-out split</td></tr>
+            
+      </tbody>
+    </table>
+  
+          <div class="guardrail">
+            Reviewer note: results are specific to this retrospective cohort, split design, feature path, and proxy label construction.
+          </div>
+        </article>
+
+        <article class="panel">
+          <h2>Top feature weights</h2>
+          <div class="weight-list">
+            
+                  <div class="weight-row">
+                    <span class="weight-name">ph_last_6h</span>
+                    <span class="weight-value">+0.439</span>
+                  </div>
+                
+                  <div class="weight-row">
+                    <span class="weight-name">ph_min_6h</span>
+                    <span class="weight-value">+0.342</span>
+                  </div>
+                
+                  <div class="weight-row">
+                    <span class="weight-name">ph_max_6h</span>
+                    <span class="weight-value">+0.131</span>
+                  </div>
+                
+                  <div class="weight-row">
+                    <span class="weight-name">ph_n_6h</span>
+                    <span class="weight-value">+0.094</span>
+                  </div>
+                
+                  <div class="weight-row">
+                    <span class="weight-name">ph_mean_6h</span>
+                    <span class="weight-value">+0.089</span>
+                  </div>
+                
+                  <div class="weight-row">
+                    <span class="weight-name">lactate_n_6h</span>
+                    <span class="weight-value">+0.085</span>
+                  </div>
+                
+          </div>
+        </article>
+      </section>
+    
+      <p class="footer-note">Source files: artifacts/reference_run/01_reference_run_counts.csv, 02_reference_run_operating_point.csv, 04_reference_run_weights.csv, and 05_reference_run_ml_evaluate.csv.</p>
+    </main>
+  </body>
+</html>
