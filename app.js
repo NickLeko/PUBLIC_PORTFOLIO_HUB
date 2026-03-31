@@ -16,6 +16,10 @@
       .replace(/'/g, "&#39;");
   }
 
+  function getSiteLink(label) {
+    return data.site.links.find((link) => link.label === label);
+  }
+
   function linkHtml(link, className) {
     if (!link.url) {
       return `<span class="${className} is-disabled">${escapeHtml(link.label)}</span>`;
@@ -56,12 +60,14 @@
 
   function renderHero() {
     const hero = data.hero;
-    const primaryLinks = data.site.links.map((link) =>
-      linkHtml(
-        { label: link.label, url: link.url, type: link.type },
-        link.label === "One-pager" ? "button-pill primary" : "button-pill"
-      )
-    );
+    const heroActions = [
+      { label: "View Projects", url: "#flagship", type: "internal", className: "button-pill primary" },
+      getSiteLink("One-pager") && { ...getSiteLink("One-pager"), className: "button-pill" },
+      getSiteLink("Email") && { label: "Contact", ...getSiteLink("Email"), className: "button-pill" },
+      getSiteLink("GitHub") && { ...getSiteLink("GitHub"), className: "button-pill" }
+    ]
+      .filter(Boolean)
+      .map((link) => linkHtml(link, link.className));
     const pillars = hero.pillars
       .map((pillar) => `<span class="hero-pillar">${escapeHtml(pillar)}</span>`)
       .join("");
@@ -72,15 +78,12 @@
             <span class="hero-preview-index">0${index + 1}</span>
             <div class="hero-preview-copy">
               <strong>${escapeHtml(project.title)}</strong>
-              <p>${escapeHtml(project.heroPreview)}</p>
+              <p>${escapeHtml(project.summary)}</p>
             </div>
             <span class="hero-preview-status">${escapeHtml(project.status)}</span>
           </a>
         `
       )
-      .join("");
-    const fitItems = hero.fitItems
-      .map((item) => `<span class="hero-fit-pill">${escapeHtml(item)}</span>`)
       .join("");
 
     document.getElementById("hero").innerHTML = `
@@ -89,17 +92,13 @@
         <h1 class="hero-title">${escapeHtml(hero.title)}</h1>
         <p class="hero-copy">${escapeHtml(hero.intro)}</p>
         <div class="hero-pillars">${pillars}</div>
-        <div class="hero-actions">${primaryLinks.join("")}</div>
+        <div class="hero-actions">${heroActions.join("")}</div>
         <div class="hero-footnote">${escapeHtml(hero.note)}</div>
       </div>
 
-      <aside class="hero-card hero-preview">
+      <aside class="hero-card hero-preview hero-preview-compact">
         <p class="eyebrow">${escapeHtml(hero.previewTitle)}</p>
         <div class="hero-preview-list">${previewItems}</div>
-        <div class="hero-fit-block">
-          <p class="hero-fit-title">${escapeHtml(hero.fitTitle)}</p>
-          <div class="hero-fit-list">${fitItems}</div>
-        </div>
         <p class="hero-disclaimer">${escapeHtml(hero.disclaimer)}</p>
       </aside>
     `;
@@ -134,61 +133,95 @@
             `
           )
           .join("");
+        const primaryShot = project.screenshots[0];
+        const credibilityCue = project.proofPoints[0];
 
         return `
           <article class="flagship-card" id="${escapeHtml(project.slug)}">
-            <div class="flagship-header">
-              <div class="flagship-index">0${index + 1}</div>
+            <div class="flagship-preview-grid">
+              <div class="flagship-preview-main">
+                <div class="flagship-header">
+                  <div class="flagship-index">0${index + 1}</div>
 
-              <div class="flagship-title-group">
-                <div class="status-row">
-                  <span class="status-pill accent">${escapeHtml(project.status)}</span>
-                  <span class="status-pill">${escapeHtml(project.artifactType)}</span>
-                  <span class="status-pill warm">${escapeHtml(project.scopeLabel)}</span>
+                  <div class="flagship-title-group">
+                    <div class="status-row">
+                      <span class="status-pill accent">${escapeHtml(project.status)}</span>
+                      <span class="status-pill">${escapeHtml(project.artifactType)}</span>
+                      <span class="status-pill warm">${escapeHtml(project.scopeLabel)}</span>
+                    </div>
+                    <h3 class="flagship-title">${escapeHtml(project.title)}</h3>
+                    <p class="flagship-summary">${escapeHtml(project.summary)}</p>
+                    <div class="tag-row">${tags}</div>
+                  </div>
                 </div>
-                <h3 class="flagship-title">${escapeHtml(project.title)}</h3>
-                <p class="flagship-summary">${escapeHtml(project.summary)}</p>
-                <div class="tag-row">${tags}</div>
+
+                <div class="flagship-signal-row">
+                  <div class="flagship-signal">
+                    <span class="flagship-callout-label">Credibility cue</span>
+                    <p>${escapeHtml(credibilityCue)}</p>
+                  </div>
+                  <div class="flagship-callout flagship-best-for">
+                    <span class="flagship-callout-label">Best signal for</span>
+                    <p>${escapeHtml(project.bestFor)}</p>
+                  </div>
+                </div>
               </div>
 
-              <aside class="flagship-callout">
-                <span class="flagship-callout-label">Best signal for</span>
-                <p>${escapeHtml(project.bestFor)}</p>
-              </aside>
+              ${
+                primaryShot
+                  ? `
+                    <aside class="flagship-preview-media">
+                      <a class="flagship-thumbnail" href="${escapeHtml(primaryShot.src)}" ${externalAttrs}>
+                        <img src="${escapeHtml(primaryShot.src)}" alt="${escapeHtml(primaryShot.alt)}">
+                      </a>
+                      <p class="flagship-thumbnail-note">${escapeHtml(primaryShot.title)}</p>
+                    </aside>
+                  `
+                  : ""
+              }
             </div>
 
-            <div class="flagship-core-grid">
-              <section class="story-block">
-                <h3>Problem</h3>
-                <p>${escapeHtml(project.problemStatement)}</p>
-              </section>
-              <section class="story-block">
-                <h3>What I built</h3>
-                <p>${escapeHtml(project.whatIBuilt)}</p>
-              </section>
-              <section class="story-block">
-                <h3>Why it matters</h3>
-                <p>${escapeHtml(project.whyItMatters)}</p>
-              </section>
-            </div>
+            <details class="flagship-details">
+              <summary class="flagship-toggle">
+                <span class="toggle-label toggle-closed">View case study</span>
+                <span class="toggle-label toggle-open">Hide case study</span>
+              </summary>
 
-            <div class="flagship-detail-grid">
-              <section class="detail-card">
-                <h3>Why it feels credible</h3>
-                <ul class="bullet-list">${proofPoints}</ul>
-              </section>
-
-              <section class="detail-card">
-                <h3>Scope boundaries</h3>
-                <ul class="bullet-list">${limitations}</ul>
-                <div class="detail-links">
-                  <span class="detail-links-label">Repo and docs</span>
-                  ${renderCompactLinks(project.links, "No public links")}
+              <div class="flagship-detail-panel">
+                <div class="flagship-core-grid">
+                  <section class="story-block">
+                    <h3>Problem</h3>
+                    <p>${escapeHtml(project.problemStatement)}</p>
+                  </section>
+                  <section class="story-block">
+                    <h3>What I built</h3>
+                    <p>${escapeHtml(project.whatIBuilt)}</p>
+                  </section>
+                  <section class="story-block">
+                    <h3>Why it matters</h3>
+                    <p>${escapeHtml(project.whyItMatters)}</p>
+                  </section>
                 </div>
-              </section>
-            </div>
 
-            <div class="screenshot-grid">${screenshots}</div>
+                <div class="flagship-detail-grid">
+                  <section class="detail-card">
+                    <h3>Why it feels credible</h3>
+                    <ul class="bullet-list">${proofPoints}</ul>
+                  </section>
+
+                  <section class="detail-card">
+                    <h3>Scope boundaries</h3>
+                    <ul class="bullet-list">${limitations}</ul>
+                    <div class="detail-links">
+                      <span class="detail-links-label">Repo and docs</span>
+                      ${renderCompactLinks(project.links, "No public links")}
+                    </div>
+                  </section>
+                </div>
+
+                <div class="screenshot-grid">${screenshots}</div>
+              </div>
+            </details>
           </article>
         `;
       })
@@ -206,16 +239,14 @@
           .map(
             (item) => `
               <article class="compact-card">
-                <div class="compact-top">
-                  <div>
-                    <h3>${escapeHtml(item.title)}</h3>
-                    <p class="compact-summary">${escapeHtml(item.summary)}</p>
-                  </div>
+                <div class="compact-top compact-top-inline">
+                  <h3>${escapeHtml(item.title)}</h3>
                   <div class="support-meta">
                     <span class="status-pill accent">${escapeHtml(item.status)}</span>
                     <span class="status-pill">${escapeHtml(item.visibility)}</span>
                   </div>
                 </div>
+                <p class="compact-summary">${escapeHtml(item.summary)}</p>
                 <p class="compact-note">${escapeHtml(item.whyIncluded)}</p>
                 ${renderCompactLinks(item.links, "Private/local only")}
               </article>
@@ -245,16 +276,14 @@
       .map(
         (item) => `
           <article class="compact-card compact-card-accent">
-            <div class="compact-top">
-              <div>
-                <h3>${escapeHtml(item.title)}</h3>
-                <p class="compact-summary">${escapeHtml(item.summary)}</p>
-              </div>
+            <div class="compact-top compact-top-inline">
+              <h3>${escapeHtml(item.title)}</h3>
               <div class="support-meta">
                 <span class="status-pill accent">${escapeHtml(item.status)}</span>
                 <span class="status-pill">${escapeHtml(item.visibility)}</span>
               </div>
             </div>
+            <p class="compact-summary">${escapeHtml(item.summary)}</p>
             <p class="compact-note">${escapeHtml(item.whyIncluded)}</p>
             ${renderCompactLinks(item.links, "Private/local workflow")}
           </article>
@@ -285,11 +314,8 @@
 
   function renderAbout() {
     const about = data.about;
-    const paragraphs = about.paragraphs
-      .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
-      .join("");
     const highlights = about.highlights
-      .map((highlight) => `<li>${escapeHtml(highlight)}</li>`)
+      .map((highlight) => `<span class="hero-fit-pill">${escapeHtml(highlight)}</span>`)
       .join("");
     const contactLinks = data.site.links
       .map(
@@ -305,28 +331,18 @@
       .join("");
 
     document.getElementById("about").innerHTML = `
-      <div class="section-header">
-        <div>
+      <div class="about-layout about-layout-compact">
+        <article class="about-card">
           <p class="eyebrow">${escapeHtml(about.eyebrow)}</p>
           <h2 class="section-heading">${escapeHtml(about.heading)}</h2>
-          <p class="section-copy">${escapeHtml(data.site.disclaimer)}</p>
-        </div>
-      </div>
-
-      <div class="about-layout">
-        <article class="about-card">
-          <div class="about-stack">
-            ${paragraphs}
-            <section class="story-block">
-              <h3>What this portfolio is strongest at</h3>
-              <ul class="bullet-list">${highlights}</ul>
-            </section>
-          </div>
+          <p class="section-copy">${escapeHtml(about.paragraphs[0])}</p>
+          <p class="about-note">${escapeHtml(about.paragraphs[1])}</p>
+          <div class="hero-fit-list">${highlights}</div>
         </article>
 
         <aside class="contact-card">
-          <h2>Links</h2>
-          <p>Use the one-pager for a recruiter or referral-friendly summary, then jump into GitHub or contact directly.</p>
+          <h2>Next steps</h2>
+          <p>Use the one-pager for recruiter or referral-friendly sharing, then jump into GitHub, LinkedIn, or direct contact.</p>
           <div class="contact-list">${contactLinks}</div>
         </aside>
       </div>

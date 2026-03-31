@@ -33,11 +33,9 @@
       ]
     },
     navigation: [
-      { label: "Flagship", href: "#flagship" },
-      { label: "Supporting", href: "#supporting" },
-      { label: "Automations", href: "#automations" },
+      { label: "Projects", href: "#flagship" },
       { label: "How I Build", href: "#how-i-build" },
-      { label: "Positioning", href: "#about" },
+      { label: "Contact", href: "#about" },
       { label: "One-pager", href: "docs/flagship_one_pager.html" }
     ],
     hero: {
@@ -45,7 +43,7 @@
       title:
         "Governed healthcare AI for review, routing, and admin workflows.",
       intro:
-        "My public portfolio centers on healthcare-native product work for review, oversight, and workflow realism: prior auth readiness support, clinical-style LLM evaluation, and ICU alert-policy analysis. The common thread is governed AI with explicit limits, auditability, and human review.",
+        "I build healthcare-native AI product artifacts around prior auth, clinical-style evaluation, and workflow-aware ICU analysis. The recurring pattern is governed systems with explicit limits, auditability, and human review.",
       note:
         "The through-line is simple: admin automation where it helps, rules before LLMs when stakes are high, and explicit limits everywhere.",
       pillars: [
@@ -70,7 +68,7 @@
       eyebrow: "Flagship healthcare AI work",
       heading: "Start here. These three projects carry the portfolio story.",
       body:
-        "If someone only reads one section, it should be this one. Each card is built to answer the problem, the build, why it matters, why it feels credible, and where the limits are.",
+        "Homepage view is intentionally compressed. Open a case study when you want the full problem, build, evidence, and scope boundaries.",
       sidebar:
         "Everything after this section is supporting evidence, not the main pitch."
     },
@@ -297,9 +295,9 @@
     ],
     supportingIntro: {
       eyebrow: "Supporting work",
-      heading: "Useful secondary proof, clearly separate from the flagship story.",
+      heading: "Supporting work that stays clearly secondary.",
       body:
-        "These projects add range without competing for attention. Supporting healthcare work stays adjacent to the main story; experiments stay visibly secondary."
+        "These projects add range without competing with the flagship story."
     },
     supportingGroups: [
       {
@@ -357,9 +355,9 @@
     ],
     automationIntro: {
       eyebrow: "Automations",
-      heading: "Admin and research workflows where structure beats busywork.",
+      heading: "Structured admin and research workflows.",
       body:
-        "These are not presented as autonomous systems. The pattern is structured inputs, useful filtering, and clear human review points."
+        "These are structured, human-reviewed workflows rather than autonomy theater."
     },
     automations: [
       {
@@ -392,36 +390,36 @@
       eyebrow: "How I build",
       heading: "A few principles that repeat across the portfolio.",
       body:
-        "The common thread is not model novelty. It is keeping behavior inspectable in high-stakes workflows."
+        "Short version: inspectable systems over model novelty."
     },
     buildPrinciples: [
       {
         title: "Rules before LLMs when stakes are high",
         body:
-          "If the workflow depends on evidence presence, threshold checks, or refusal semantics, I default to deterministic logic first."
+          "If the workflow depends on evidence presence, threshold checks, or refusal semantics, I start with deterministic logic."
       },
       {
         title: "Evals and monitoring matter",
         body:
-          "I treat evaluation, maintenance boundaries, and drift monitoring as part of the product surface rather than bolt-on QA."
+          "Evaluation, maintenance boundaries, and drift monitoring belong in the product surface."
       },
       {
         title: "Admin automation is a strong wedge",
         body:
-          "A lot of practical healthcare AI value starts in repetitive admin work where better structure and review can save real time."
+          "A lot of practical healthcare AI value starts in repetitive admin work where structure and review save time."
       },
       {
         title: "Human oversight stays in the loop",
         body:
-          "The goal is rarely full autonomy. It is building systems that are easier for a human reviewer to trust, inspect, and correct."
+          "The goal is rarely full autonomy. It is making systems easier for a human reviewer to trust, inspect, and correct."
       }
     ],
     about: {
-      eyebrow: "Positioning",
+      eyebrow: "Contact",
       heading: "Healthcare-native product framing with explicit project boundaries.",
       paragraphs: [
-        "My background spans healthcare operations, payer workflow, device operations, and frontline clinical admin settings. That shows up in the portfolio as workflow fit, reviewer burden, policy friction, alert fatigue, and operational trust.",
-        "This site focuses on personal portfolio work. It is meant to show product judgment in healthcare AI, not imply that these repos are deployed clinical products or employer-owned launches."
+        "My background spans healthcare operations, payer workflow, device operations, and frontline clinical admin settings. That shows up here as workflow fit, reviewer burden, policy friction, alert fatigue, and operational trust.",
+        "This site focuses on personal portfolio work. It is meant to show healthcare AI product judgment, not imply employer product launches or deployed clinical systems."
       ],
       highlights: [
         "Healthcare operations and payer-provider workflow context",
