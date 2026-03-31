@@ -21,13 +21,14 @@
         },
         {
           label: "LinkedIn",
-          url: "https://www.linkedin.com/in/nicholasLeko",
+          url: "https://www.linkedin.com/in/nicholas-leko",
           type: "external"
         },
         {
           label: "Email",
           url: "mailto:nicholas.leko99@gmail.com",
-          type: "external"
+          type: "external",
+          displayValue: "opens your email client"
         }
       ]
     },
@@ -42,9 +43,9 @@
     hero: {
       kicker: "Healthcare AI / AI PM portfolio",
       title:
-        "Healthcare-native AI product work for high-stakes healthcare workflows.",
+        "Governed healthcare AI for review, routing, and admin workflows.",
       intro:
-        "The strongest public story is three flagship projects across prior authorization support, clinical-style LLM evaluation, and retrospective ICU risk modeling, built with governance-first boundaries and admin-automation instinct.",
+        "My public portfolio centers on healthcare-native product work for review, oversight, and workflow realism: prior auth readiness support, clinical-style LLM evaluation, and ICU alert-policy analysis. The common thread is governed AI with explicit limits, auditability, and human review built in.",
       note:
         "The through-line is simple: admin automation where it helps, rules before LLMs when stakes are high, and explicit limits everywhere.",
       pillars: [
@@ -81,28 +82,28 @@
         artifactType: "Personal project",
         scopeLabel: "Administrative decision support only",
         summary:
-          "Rules-first prior auth readiness review that refuses when required evidence is missing.",
+          "Rules-first prior auth review that refuses when required evidence is missing.",
         heroPreview:
-          "Prior auth workflow support with deterministic checks, evidence mapping, and refusal-first admin review.",
+          "Prior auth review with deterministic checks, evidence mapping, and refusal-first admin support.",
         bestFor:
           "Workflow automation, payer-provider tooling, and AI PM conversations.",
         tags: ["Prior auth", "Rules-first", "Auditability", "Workflow support"],
         problemStatement:
-          "Documentation gaps often surface late in the prior auth cycle, after time has already been spent reviewing or drafting a submission.",
+          "Documentation gaps often surface late in prior auth, after time has already been spent reviewing or drafting the submission.",
         whatIBuilt:
-          "A deterministic extraction and requirement-evaluation flow against versioned payer-style rules, with READY, NOT_READY, and CANNOT_DETERMINE outputs plus evidence mapping.",
+          "A deterministic extraction and requirement-checking flow against versioned payer-style rules, with READY, NOT_READY, and CANNOT_DETERMINE outputs plus evidence mapping.",
         whyItMatters:
-          "It turns an ambiguous admin burden into a bounded pre-submit review step that is easier to inspect, discuss, and escalate.",
+          "It turns ambiguous admin work into a bounded pre-submit review step that is easier to inspect, discuss, and escalate.",
         proofPoints: [
           "Missing evidence becomes an explicit workflow state instead of a hidden guess.",
-          "The current runtime path uses deterministic extraction, evaluation, and letter drafting with no LLM dependency.",
-          "Scope is intentionally narrow: two demo procedures, synthetic inputs, and partial policy-drift monitoring.",
-          "Public artifacts include contracts, failure modes, a model card, rule files, and a local demo UI."
+          "Current runtime path uses deterministic extraction, evaluation, and letter drafting with no LLM dependency.",
+          "Scope stays narrow: two demo procedures, synthetic inputs, and partial policy-drift monitoring.",
+          "Public artifacts include rule files, contracts, failure modes, a model card, and a local demo UI."
         ],
         limitations: [
           "Not approval prediction and not a clinical decision tool.",
           "No EHR, payer, or clearinghouse integration.",
-          "Synthetic demo cases only with limited procedure coverage.",
+          "Synthetic demo cases only; limited procedure coverage.",
           "Policy-drift monitoring applies only to configured sources."
         ],
         links: [
@@ -135,14 +136,6 @@
             title: "Results and blockers",
             note: "Real showcase-case capture of the structured outputs surface.",
             placeholder: false
-          },
-          {
-            src: "assets/screenshots/prior-auth/prior-auth-governance-desktop.png",
-            alt:
-              "Prior Authorization Copilot policy monitor showing configured source status and governance-oriented review context.",
-            title: "Governance and policy monitor",
-            note: "Focused capture of the policy-monitoring and review context.",
-            placeholder: false
           }
         ],
         onePagerSummary:
@@ -162,28 +155,28 @@
         artifactType: "Personal project",
         scopeLabel: "Pre-deployment evaluation artifact",
         summary:
-          "Safety-oriented eval harness for clinical-style LLM outputs before workflow use.",
+          "Clinical-style eval harness for groundedness, refusal behavior, and failure review.",
         heroPreview:
-          "Clinical-style LLM evaluation focused on groundedness, citations, refusal behavior, and failure analysis.",
+          "Clinical-style LLM evaluation for groundedness, refusal behavior, and failure analysis.",
         bestFor:
           "Eval, governance, and LLM safety conversations.",
         tags: ["LLM eval", "Safety framing", "Failure analysis", "Governance"],
         problemStatement:
-          "Plausible outputs are not enough in healthcare settings. Teams need a concrete way to test groundedness, citations, uncertainty, refusal behavior, and obvious safety failures.",
+          "In healthcare settings, plausible outputs are not enough. Teams need a concrete way to test groundedness, citations, uncertainty, refusal behavior, and obvious safety failures.",
         whatIBuilt:
           "A fixed benchmark flow that runs a structured dataset through one prompt template, scores outputs with explicit heuristics, flags concerning cases, and publishes reviewer-friendly artifacts.",
         whyItMatters:
-          "It shows evaluation as product work, not after-the-fact QA or benchmark theater.",
+          "It treats evaluation as product work instead of after-the-fact QA or benchmark theater.",
         proofPoints: [
           "Public artifacts pin one explicit run with provider, model, run ID, and case count.",
-          "Review outputs include raw generations, case-level scoring, flagged cases, a summary report, and safety documentation.",
-          "Dataset, prompt, metrics, and published results are treated as benchmark-sensitive assets.",
+          "Review outputs include raw generations, case scoring, flagged cases, a summary report, and safety docs.",
+          "Dataset, prompt, metrics, and published results are handled as benchmark-sensitive assets.",
           "The repo stays intentionally small and auditable instead of pretending to be a clinical system."
         ],
         limitations: [
           "Not clinical validation and not evidence that a model is safe in deployment.",
           "Safety and faithfulness checks are heuristic and incomplete.",
-          "The public result set reflects one explicit run, not universal model performance.",
+          "Public results reflect one explicit run, not universal model performance.",
           "Human clinical review remains outside the automated pipeline."
         ],
         links: [
@@ -235,22 +228,22 @@
         artifactType: "Personal project",
         scopeLabel: "Held-out-hospital ranking study",
         summary:
-          "Retrospective ICU risk-ranking case study focused on alert budgets, temporal correctness, and honest boundaries.",
+          "Retrospective ICU risk-ranking case study centered on alert budgets, temporal framing, and honest boundaries.",
         heroPreview:
-          "Interpretable ICU ML case study with held-out hospital evaluation and alert-policy analysis.",
+          "Retrospective ICU case study with held-out hospital evaluation and alert-policy analysis.",
         bestFor:
           "Healthcare ML judgment and workflow-aware evaluation discussions.",
         tags: ["Retrospective ML", "Alert budgets", "BigQuery ML", "Clinical workflow"],
         problemStatement:
-          "Rare-event ICU prediction work is often presented with headline metrics that say little about alert fatigue, temporal correctness, or workflow fit.",
+          "Rare-event ICU prediction is often sold with headline metrics that say little about alert burden, temporal correctness, or workflow fit.",
         whatIBuilt:
-          "A reviewer-facing retrospective pipeline over eICU-CRD using hourly features, BigQuery ML logistic regression, held-out hospital evaluation, and separate post-model alert-policy analysis.",
+          "A reviewer-facing retrospective pipeline over eICU-CRD using hourly features, BigQuery ML logistic regression, held-out hospital evaluation, and separate alert-policy analysis.",
         whyItMatters:
-          "It frames evaluation as an operational problem: not just whether the model scores well offline, but whether an alerting policy can be reasoned about under real constraints.",
+          "It frames evaluation as an operational question: not just whether a model ranks well offline, but whether an alerting policy is discussable under real constraints.",
         proofPoints: [
-          "Temporal framing uses a six-hour lookback to rank patient-hours for risk in the next two hours.",
-          "The published evaluation is hospital-level held-out testing rather than a looser random split.",
-          "At the top 0.5 percent of scored test rows, the checked-in reference run reports 13.55x enrichment over test prevalence.",
+          "Uses a six-hour lookback to rank patient-hours for risk in the next two hours.",
+          "Published evaluation is hospital-level held-out testing, not a looser random split.",
+          "At the top 0.5 percent of scored test rows, the reference run shows 13.55x enrichment over test prevalence.",
           "Aggregate reviewer exports and cooldown analyses discuss alert burden, not just ranking output."
         ],
         limitations: [

@@ -21,7 +21,9 @@
       return `<span class="${className} is-disabled">${escapeHtml(link.label)}</span>`;
     }
 
-    const attrs = link.type === "internal" || link.url.startsWith("#") ? "" : ` ${externalAttrs}`;
+    const isMailto = link.url.startsWith("mailto:");
+    const attrs =
+      link.type === "internal" || link.url.startsWith("#") || isMailto ? "" : ` ${externalAttrs}`;
     return `<a class="${className}" href="${escapeHtml(link.url)}"${attrs}>${escapeHtml(link.label)}</a>`;
   }
 
@@ -293,10 +295,10 @@
       .map(
         (link) => `
           <a class="contact-link" href="${escapeHtml(link.url)}" ${
-            link.type === "internal" ? "" : externalAttrs
+            link.type === "internal" || link.url.startsWith("mailto:") ? "" : externalAttrs
           }>
             <strong>${escapeHtml(link.label)}</strong>
-            <span>${escapeHtml(link.type === "internal" ? "portfolio artifact" : link.url.replace(/^mailto:/, ""))}</span>
+            <span>${escapeHtml(link.displayValue || (link.type === "internal" ? "portfolio artifact" : link.url))}</span>
           </a>
         `
       )
