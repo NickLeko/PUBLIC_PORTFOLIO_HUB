@@ -216,9 +216,7 @@ main {
 }
 
 .hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(290px, 0.8fr);
-  gap: 22px;
+  display: block;
   padding-top: 14px;
 }
 
@@ -243,6 +241,7 @@ main {
 .hero-main {
   position: relative;
   overflow: hidden;
+  min-height: 0;
 }
 
 .hero-main::before {
@@ -295,7 +294,7 @@ main {
 
 .hero-copy {
   margin: 0;
-  max-width: 48ch;
+  max-width: 60ch;
   color: var(--muted-strong);
   font-size: 1.02rem;
 }
@@ -1038,7 +1037,6 @@ main {
 }
 
 @media (max-width: 1080px) {
-  .hero,
   .section-flagship .section-header,
   .flagship-preview-grid,
   .flagship-signal-row,

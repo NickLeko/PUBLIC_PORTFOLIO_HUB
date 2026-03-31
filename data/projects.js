@@ -341,14 +341,19 @@
             ]
           },
           {
-            title: "Fantasy Injury Report",
-            status: "Fun side project",
-            visibility: "Private/local",
+            title: "Orbit Rocket Game",
+            status: "Experiment",
+            visibility: "Public repo",
             summary:
-              "Tiny Streamlit parody app that rewrites everyday mishaps as fantasy sports injury reports.",
+              "Arcade-style browser game about piloting a rocket through hazards, pickups, and score-chasing runs.",
             whyIncluded:
-              "Kept visible as personality and product craft, but clearly secondary to the flagship portfolio work.",
-            links: []
+              "Shows interface craft and game feel without competing with the core healthcare AI portfolio story.",
+            links: [
+              {
+                label: "Repo",
+                url: "https://github.com/NickLeko/Orbit_Arcade_Game"
+              }
+            ]
           }
         ]
       }

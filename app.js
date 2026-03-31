@@ -71,21 +71,6 @@
     const pillars = hero.pillars
       .map((pillar) => `<span class="hero-pillar">${escapeHtml(pillar)}</span>`)
       .join("");
-    const previewItems = data.flagshipProjects
-      .map(
-        (project, index) => `
-          <a class="hero-preview-item" href="#${escapeHtml(project.slug)}">
-            <span class="hero-preview-index">0${index + 1}</span>
-            <div class="hero-preview-copy">
-              <strong>${escapeHtml(project.title)}</strong>
-              <p>${escapeHtml(project.summary)}</p>
-            </div>
-            <span class="hero-preview-status">${escapeHtml(project.status)}</span>
-          </a>
-        `
-      )
-      .join("");
-
     document.getElementById("hero").innerHTML = `
       <div class="hero-card hero-main">
         <span class="hero-kicker">${escapeHtml(hero.kicker)}</span>
@@ -95,12 +80,6 @@
         <div class="hero-actions">${heroActions.join("")}</div>
         <div class="hero-footnote">${escapeHtml(hero.note)}</div>
       </div>
-
-      <aside class="hero-card hero-preview hero-preview-compact">
-        <p class="eyebrow">${escapeHtml(hero.previewTitle)}</p>
-        <div class="hero-preview-list">${previewItems}</div>
-        <p class="hero-disclaimer">${escapeHtml(hero.disclaimer)}</p>
-      </aside>
     `;
   }
 
