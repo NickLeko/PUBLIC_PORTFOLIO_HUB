@@ -39,13 +39,13 @@
       { label: "One-pager", href: "docs/flagship_one_pager.html" }
     ],
     hero: {
-      kicker: "Healthcare AI / AI PM portfolio",
+      kicker: "Healthcare AI / AI PM",
       title:
         "Governed healthcare AI for review, routing, and admin workflows.",
       intro:
         "I build healthcare-native AI product artifacts around prior auth, clinical-style evaluation, and workflow-aware ICU analysis. The recurring pattern is governed systems with explicit limits, auditability, and human review.",
       note:
-        "The through-line is simple: admin automation where it helps, rules before LLMs when stakes are high, and explicit limits everywhere.",
+        "Rules before LLMs where stakes are high. Human review stays in the loop.",
       pillars: [
         "Healthcare-native",
         "Governance-first",
@@ -66,11 +66,9 @@
     },
     flagshipIntro: {
       eyebrow: "Flagship healthcare AI work",
-      heading: "Start here. These three projects carry the portfolio story.",
-      body:
-        "Homepage view is intentionally compressed. Open a case study when you want the full problem, build, evidence, and scope boundaries.",
-      sidebar:
-        "Everything after this section is supporting evidence, not the main pitch."
+      heading: "Flagship projects.",
+      body: "",
+      sidebar: ""
     },
     flagshipProjects: [
       {
@@ -295,14 +293,13 @@
     ],
     supportingIntro: {
       eyebrow: "Supporting work",
-      heading: "Supporting work that stays clearly secondary.",
-      body:
-        "These projects add range without competing with the flagship story."
+      heading: "Supporting work.",
+      body: ""
     },
     supportingGroups: [
       {
         title: "Supporting healthcare work",
-        note: "Adjacent workflow and safety-oriented healthcare projects.",
+        note: "Healthcare workflow projects.",
         items: [
           {
             title: "Outpatient Triage and Routing",
@@ -322,8 +319,8 @@
         ]
       },
       {
-        title: "Experiments / fun",
-        note: "Visible, but intentionally not the main story.",
+        title: "Experiments",
+        note: "Browser-based projects.",
         items: [
           {
             title: "Code Blue Defense",
@@ -360,9 +357,8 @@
     ],
     automationIntro: {
       eyebrow: "Automations",
-      heading: "Structured admin and research workflows.",
-      body:
-        "These are structured, human-reviewed workflows rather than autonomy theater."
+      heading: "Automations.",
+      body: "Admin and research workflows."
     },
     automations: [
       {
@@ -393,9 +389,8 @@
     ],
     buildIntro: {
       eyebrow: "How I build",
-      heading: "A few principles that repeat across the portfolio.",
-      body:
-        "Short version: inspectable systems over model novelty."
+      heading: "How I build.",
+      body: ""
     },
     buildPrinciples: [
       {
@@ -421,16 +416,16 @@
     ],
     about: {
       eyebrow: "Contact",
-      heading: "Healthcare-native product framing with explicit project boundaries.",
+      heading: "Healthcare AI / AI PM",
       paragraphs: [
-        "My background spans healthcare operations, payer workflow, device operations, and frontline clinical admin settings. That shows up here as workflow fit, reviewer burden, policy friction, alert fatigue, and operational trust.",
-        "This site focuses on personal portfolio work. It is meant to show healthcare AI product judgment, not imply employer product launches or deployed clinical systems."
+        "Background in healthcare operations, payer workflow, device operations, and frontline clinical admin. That shows up here in workflow fit, reviewer burden, policy friction, alert fatigue, and operational trust.",
+        "Personal project work only. No employer products or deployed clinical systems are represented here."
       ],
       highlights: [
         "Healthcare operations and payer-provider workflow context",
-        "AI PM lens with real interest in eval and governance",
-        "Admin automation instinct without autonomy hype",
-        "Personal project work clearly separated from work experience"
+        "AI PM with eval and governance focus",
+        "Admin automation without autonomy hype",
+        "Personal project work separated from work experience"
       ]
     },
     onePager: {
@@ -470,7 +465,7 @@
         }
       ],
       footerNote:
-        "All three flagship items are personal portfolio artifacts with explicit scope labels: prototype, benchmark harness, or retrospective case study."
+        "Flagship projects are labeled as prototype, benchmark harness, or retrospective case study."
     }
   };
 

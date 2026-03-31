@@ -37,7 +37,7 @@
         <div>
           <p class="eyebrow">${escapeHtml(section.eyebrow)}</p>
           <h2 class="section-heading">${escapeHtml(section.heading)}</h2>
-          <p class="section-copy">${escapeHtml(section.body)}</p>
+          ${section.body ? `<p class="section-copy">${escapeHtml(section.body)}</p>` : ""}
         </div>
         ${
           sidebarText
@@ -113,7 +113,6 @@
           )
           .join("");
         const primaryShot = project.screenshots[0];
-        const credibilityCue = project.proofPoints[0];
 
         return `
           <article class="flagship-card" id="${escapeHtml(project.slug)}">
@@ -134,16 +133,6 @@
                   </div>
                 </div>
 
-                <div class="flagship-signal-row">
-                  <div class="flagship-signal">
-                    <span class="flagship-callout-label">Credibility cue</span>
-                    <p>${escapeHtml(credibilityCue)}</p>
-                  </div>
-                  <div class="flagship-callout flagship-best-for">
-                    <span class="flagship-callout-label">Best signal for</span>
-                    <p>${escapeHtml(project.bestFor)}</p>
-                  </div>
-                </div>
               </div>
 
               ${
@@ -184,12 +173,12 @@
 
                 <div class="flagship-detail-grid">
                   <section class="detail-card">
-                    <h3>Why it feels credible</h3>
+                    <h3>Design choices</h3>
                     <ul class="bullet-list">${proofPoints}</ul>
                   </section>
 
                   <section class="detail-card">
-                    <h3>Scope boundaries</h3>
+                    <h3>Scope</h3>
                     <ul class="bullet-list">${limitations}</ul>
                     <div class="detail-links">
                       <span class="detail-links-label">Repo and docs</span>
@@ -226,7 +215,6 @@
                   </div>
                 </div>
                 <p class="compact-summary">${escapeHtml(item.summary)}</p>
-                <p class="compact-note">${escapeHtml(item.whyIncluded)}</p>
                 ${renderCompactLinks(item.links, "Private/local only")}
               </article>
             `
@@ -237,7 +225,7 @@
           <section class="compact-group">
             <div class="group-heading">
               <h3>${escapeHtml(group.title)}</h3>
-              <p>${escapeHtml(group.note)}</p>
+              ${group.note ? `<p>${escapeHtml(group.note)}</p>` : ""}
             </div>
             <div class="compact-grid">${items}</div>
           </section>
@@ -263,7 +251,6 @@
               </div>
             </div>
             <p class="compact-summary">${escapeHtml(item.summary)}</p>
-            <p class="compact-note">${escapeHtml(item.whyIncluded)}</p>
             ${renderCompactLinks(item.links, "Private/local workflow")}
           </article>
         `
@@ -320,8 +307,8 @@
         </article>
 
         <aside class="contact-card">
-          <h2>Next steps</h2>
-          <p>Use the one-pager for recruiter or referral-friendly sharing, then jump into GitHub, LinkedIn, or direct contact.</p>
+          <h2>Links</h2>
+          <p>One-pager, GitHub, LinkedIn, and contact.</p>
           <div class="contact-list">${contactLinks}</div>
         </aside>
       </div>
