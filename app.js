@@ -28,6 +28,7 @@
     const isMailto = link.url.startsWith("mailto:");
     const attrs =
       link.type === "internal" || link.url.startsWith("#") || isMailto ? "" : ` ${externalAttrs}`;
+
     return `<a class="${className}" href="${escapeHtml(link.url)}"${attrs}>${escapeHtml(link.label)}</a>`;
   }
 
@@ -60,25 +61,69 @@
 
   function renderHero() {
     const hero = data.hero;
-    const heroActions = [
-      { label: "View Projects", url: "#flagship", type: "internal", className: "button-pill primary" },
-      getSiteLink("One-pager") && { ...getSiteLink("One-pager"), className: "button-pill" },
-      getSiteLink("Email") && { label: "Contact", ...getSiteLink("Email"), className: "button-pill" },
-      getSiteLink("GitHub") && { ...getSiteLink("GitHub"), className: "button-pill" }
-    ]
-      .filter(Boolean)
-      .map((link) => linkHtml(link, link.className));
     const pillars = hero.pillars
       .map((pillar) => `<span class="hero-pillar">${escapeHtml(pillar)}</span>`)
       .join("");
+
     document.getElementById("hero").innerHTML = `
       <div class="hero-card hero-main">
         <span class="hero-kicker">${escapeHtml(hero.kicker)}</span>
-        <h1 class="hero-title">${escapeHtml(hero.title)}</h1>
-        <p class="hero-copy">${escapeHtml(hero.intro)}</p>
-        <div class="hero-pillars">${pillars}</div>
-        <div class="hero-actions">${heroActions.join("")}</div>
-        <div class="hero-footnote">${escapeHtml(hero.note)}</div>
+        <div class="hero-grid">
+          <div class="hero-heading-block">
+            <h1 class="hero-title">${escapeHtml(hero.title)}</h1>
+          </div>
+          <div class="hero-copy-block">
+            <p class="hero-copy">${escapeHtml(hero.intro)}</p>
+            <div class="hero-pillars">${pillars}</div>
+            <div class="hero-footnote">${escapeHtml(hero.note)}</div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderPrimaryCta() {
+    const cta = data.ctaBanner;
+    const ctaActions = [
+      getSiteLink("One-pager") && {
+        label: "Open flagship one-pager",
+        url: getSiteLink("One-pager").url,
+        type: getSiteLink("One-pager").type,
+        className: "button-pill primary"
+      },
+      { label: "Jump to flagship projects", url: "#flagship", type: "internal", className: "button-pill" },
+      getSiteLink("Email") && {
+        label: "Email",
+        url: getSiteLink("Email").url,
+        type: getSiteLink("Email").type,
+        className: "button-pill"
+      }
+    ]
+      .filter(Boolean)
+      .map((link) => linkHtml(link, link.className));
+
+    const supportLinks = ["GitHub", "LinkedIn"]
+      .map((label) => getSiteLink(label))
+      .filter(Boolean)
+      .map((link) => linkHtml(link, "link-pill"))
+      .join("");
+
+    document.getElementById("recruiter-cta").innerHTML = `
+      <div class="cta-band">
+        <div>
+          <p class="eyebrow">${escapeHtml(cta.eyebrow)}</p>
+          <h2 class="cta-title">${escapeHtml(cta.heading)}</h2>
+          <p class="cta-copy">${escapeHtml(cta.body)}</p>
+          <p class="cta-note">${escapeHtml(cta.note)}</p>
+        </div>
+
+        <div class="cta-actions-block">
+          <div class="hero-actions">${ctaActions.join("")}</div>
+          <div class="cta-support">
+            <span class="detail-links-label">Also useful</span>
+            <div class="link-row">${supportLinks}</div>
+          </div>
+        </div>
       </div>
     `;
   }
@@ -129,10 +174,16 @@
                     </div>
                     <h3 class="flagship-title">${escapeHtml(project.title)}</h3>
                     <p class="flagship-summary">${escapeHtml(project.summary)}</p>
-                    <div class="tag-row">${tags}</div>
                   </div>
                 </div>
 
+                <div class="flagship-proof">
+                  <span class="flagship-callout-label">Clear proof</span>
+                  <p class="flagship-proof-copy">${escapeHtml(project.primaryProof)}</p>
+                  <p class="flagship-proof-note">${escapeHtml(project.proofNote)}</p>
+                </div>
+
+                <div class="tag-row">${tags}</div>
               </div>
 
               ${
@@ -151,8 +202,8 @@
 
             <details class="flagship-details">
               <summary class="flagship-toggle">
-                <span class="toggle-label toggle-closed">View case study</span>
-                <span class="toggle-label toggle-open">Hide case study</span>
+                <span class="toggle-label toggle-closed">Open case study details</span>
+                <span class="toggle-label toggle-open">Hide case study details</span>
               </summary>
 
               <div class="flagship-detail-panel">
@@ -173,12 +224,12 @@
 
                 <div class="flagship-detail-grid">
                   <section class="detail-card">
-                    <h3>Design choices</h3>
+                    <h3>Credibility signals</h3>
                     <ul class="bullet-list">${proofPoints}</ul>
                   </section>
 
                   <section class="detail-card">
-                    <h3>Scope</h3>
+                    <h3>Scope boundary</h3>
                     <ul class="bullet-list">${limitations}</ul>
                     <div class="detail-links">
                       <span class="detail-links-label">Repo and docs</span>
@@ -196,86 +247,47 @@
       .join("");
 
     document.getElementById("flagship").innerHTML =
-      renderSectionHeader(section, section.sidebar) + `<div class="flagship-list">${cards}</div>`;
+      renderSectionHeader(section) + `<div class="flagship-list">${cards}</div>`;
   }
 
-  function renderSupporting() {
-    const section = data.supportingIntro;
-    const groups = data.supportingGroups
+  function renderSecondary() {
+    const section = data.secondaryIntro;
+    const groups = data.secondaryGroups
       .map((group) => {
         const items = group.items
           .map(
             (item) => `
-              <article class="compact-card">
-                <div class="compact-top compact-top-inline">
-                  <h3>${escapeHtml(item.title)}</h3>
+              <article class="secondary-card">
+                <div class="secondary-top">
+                  <div class="secondary-copy">
+                    <h3>${escapeHtml(item.title)}</h3>
+                    <p class="secondary-descriptor">${escapeHtml(item.descriptor)}</p>
+                  </div>
                   <div class="support-meta">
-                    <span class="status-pill accent">${escapeHtml(item.status)}</span>
+                    <span class="status-pill accent">${escapeHtml(item.kind)}</span>
                     <span class="status-pill">${escapeHtml(item.visibility)}</span>
                   </div>
                 </div>
-                <p class="compact-summary">${escapeHtml(item.summary)}</p>
-                ${renderCompactLinks(item.links, "Private/local only")}
+                ${renderCompactLinks(item.links, item.visibility === "Private/local" ? "Private/local only" : "No public link")}
               </article>
             `
           )
           .join("");
 
         return `
-          <section class="compact-group">
+          <section class="secondary-group">
             <div class="group-heading">
               <h3>${escapeHtml(group.title)}</h3>
               ${group.note ? `<p>${escapeHtml(group.note)}</p>` : ""}
             </div>
-            <div class="compact-grid">${items}</div>
+            <div class="secondary-grid">${items}</div>
           </section>
         `;
       })
       .join("");
 
-    document.getElementById("supporting").innerHTML =
-      renderSectionHeader(section) + `<div class="compact-section-stack">${groups}</div>`;
-  }
-
-  function renderAutomations() {
-    const section = data.automationIntro;
-    const cards = data.automations
-      .map(
-        (item) => `
-          <article class="compact-card compact-card-accent">
-            <div class="compact-top compact-top-inline">
-              <h3>${escapeHtml(item.title)}</h3>
-              <div class="support-meta">
-                <span class="status-pill accent">${escapeHtml(item.status)}</span>
-                <span class="status-pill">${escapeHtml(item.visibility)}</span>
-              </div>
-            </div>
-            <p class="compact-summary">${escapeHtml(item.summary)}</p>
-            ${renderCompactLinks(item.links, "Private/local workflow")}
-          </article>
-        `
-      )
-      .join("");
-
-    document.getElementById("automations").innerHTML =
-      renderSectionHeader(section) + `<div class="compact-grid">${cards}</div>`;
-  }
-
-  function renderBuildPrinciples() {
-    const section = data.buildIntro;
-    const cards = data.buildPrinciples
-      .map(
-        (item) => `
-          <article class="principle-card">
-            <h3>${escapeHtml(item.title)}</h3>
-            <p>${escapeHtml(item.body)}</p>
-          </article>
-        `
-      )
-      .join("");
-
-    document.getElementById("how-i-build").innerHTML =
-      renderSectionHeader(section) + `<div class="principles-grid">${cards}</div>`;
+    document.getElementById("secondary").innerHTML =
+      renderSectionHeader(section) + `<div class="secondary-section-stack">${groups}</div>`;
   }
 
   function renderAbout() {
@@ -296,8 +308,8 @@
       )
       .join("");
 
-    document.getElementById("about").innerHTML = `
-      <div class="about-layout about-layout-compact">
+    document.getElementById("contact").innerHTML = `
+      <div class="about-layout">
         <article class="about-card">
           <p class="eyebrow">${escapeHtml(about.eyebrow)}</p>
           <h2 class="section-heading">${escapeHtml(about.heading)}</h2>
@@ -307,8 +319,8 @@
         </article>
 
         <aside class="contact-card">
-          <h2>Links</h2>
-          <p>One-pager, GitHub, LinkedIn, and contact.</p>
+          <h2>Quick links</h2>
+          <p>One-pager, GitHub, LinkedIn, and direct contact.</p>
           <div class="contact-list">${contactLinks}</div>
         </aside>
       </div>
@@ -343,10 +355,9 @@
   document.title = `${data.site.owner} | Healthcare AI Portfolio`;
   renderNav();
   renderHero();
+  renderPrimaryCta();
   renderFlagships();
-  renderSupporting();
-  renderAutomations();
-  renderBuildPrinciples();
+  renderSecondary();
   renderAbout();
   renderFooter();
 })();

@@ -3,9 +3,8 @@
     site: {
       owner: "Nicholas Leko",
       role: "Healthcare AI product builder",
-      location: "Tacoma, WA",
       statement:
-        "Healthcare-native AI product work across workflow automation, evaluation, and governance-heavy systems.",
+        "Healthcare AI product work across workflow automation, evaluation discipline, and governance-heavy systems.",
       disclaimer:
         "Everything here is labeled as a personal project, portfolio prototype, benchmark harness, retrospective case study, or private/local workflow. Nothing is presented as an employer product or deployed clinical system unless explicitly stated.",
       links: [
@@ -28,47 +27,41 @@
           label: "Email",
           url: "mailto:nicholas.leko99@gmail.com",
           type: "external",
-          displayValue: "opens your email client"
+          displayValue: "nicholas.leko99@gmail.com"
         }
       ]
     },
     navigation: [
-      { label: "Projects", href: "#flagship" },
-      { label: "How I Build", href: "#how-i-build" },
-      { label: "Contact", href: "#about" },
-      { label: "One-pager", href: "docs/flagship_one_pager.html" }
+      { label: "Flagships", href: "#flagship" },
+      { label: "One-pager", href: "docs/flagship_one_pager.html" },
+      { label: "Contact", href: "#contact" }
     ],
     hero: {
       kicker: "Healthcare AI / AI PM",
-      title:
-        "Governed healthcare AI for review, routing, and admin workflows.",
+      title: "Healthcare AI product work for governed workflows.",
       intro:
-        "I build healthcare-native AI product artifacts around prior auth, clinical-style evaluation, and workflow-aware ICU analysis. The recurring pattern is governed systems with explicit limits, auditability, and human review.",
+        "I build healthcare AI portfolio artifacts around prior authorization support, clinical-style LLM evaluation, and ICU risk analysis. The common thread is rules-first design, reviewable outputs, and honest scope boundaries.",
       note:
-        "Rules before LLMs where stakes are high. Human review stays in the loop.",
+        "Personal projects only: prototype, benchmark harness, and retrospective case study.",
       pillars: [
-        "Healthcare-native",
-        "Governance-first",
-        "Workflow-focused",
-        "Admin automation",
-        "Eval-aware"
-      ],
-      previewTitle: "Start with these three",
-      fitTitle: "Best fit",
-      fitItems: [
-        "Healthcare AI PM",
-        "Workflow automation in regulated settings",
-        "AI eval and governance-heavy teams",
-        "Provider and payer ops tooling"
-      ],
-      disclaimer:
-        "All three flagship projects are personal portfolio artifacts, not employer product launches."
+        "Workflow automation",
+        "Evaluation discipline",
+        "Honest scope boundaries"
+      ]
+    },
+    ctaBanner: {
+      eyebrow: "Recruiter shortcut",
+      heading: "Start with the flagship one-pager.",
+      body:
+        "Best first click if you want the three core projects, what each proves, and the scope boundaries in one page.",
+      note:
+        "Then use the homepage for screenshots, case-study detail, and supporting work."
     },
     flagshipIntro: {
       eyebrow: "Flagship healthcare AI work",
-      heading: "Flagship projects.",
-      body: "",
-      sidebar: ""
+      heading: "Three flagship projects.",
+      body:
+        "These are the main public proof points. Each one is positioned to show a different kind of product judgment."
     },
     flagshipProjects: [
       {
@@ -78,23 +71,27 @@
         artifactType: "Personal project",
         scopeLabel: "Administrative decision support only",
         summary:
-          "Rules-first prior auth review that refuses when required evidence is missing.",
-        heroPreview:
-          "Prior auth review with deterministic checks, evidence mapping, and refusal-first admin support.",
-        bestFor:
-          "Workflow automation, payer-provider tooling, and AI PM conversations.",
-        tags: ["Prior auth", "Rules-first", "Auditability", "Workflow support"],
+          "Rules-first prior auth readiness review for administrative workflows before submission.",
+        primaryProof:
+          "Proves workflow automation with versioned rules, evidence mapping, and refusal-aware support.",
+        proofNote:
+          "Turns missing documentation into an explicit review state instead of a hidden guess.",
+        tags: [
+          "Workflow automation",
+          "Rules-first governance",
+          "Refusal-aware support"
+        ],
         problemStatement:
-          "Documentation gaps often surface late in prior auth, after time has already been spent reviewing or drafting the submission.",
+          "Prior auth work breaks down when documentation gaps are discovered late, after staff have already spent time reviewing or drafting the submission.",
         whatIBuilt:
           "A deterministic extraction and requirement-checking flow against versioned payer-style rules, with READY, NOT_READY, and CANNOT_DETERMINE outputs plus evidence mapping.",
         whyItMatters:
-          "It turns ambiguous admin work into a bounded pre-submit review step that is easier to inspect, discuss, and escalate.",
+          "It makes pre-submit review inspectable and governable instead of relying on vague judgment about whether a packet looks complete.",
         proofPoints: [
-          "Missing evidence becomes an explicit workflow state instead of a hidden guess.",
-          "Current runtime path uses deterministic extraction, evaluation, and letter drafting with no LLM dependency.",
-          "Scope stays narrow: two demo procedures, synthetic inputs, and partial policy-drift monitoring.",
-          "Public artifacts include rule files, contracts, failure modes, a model card, and a local demo UI."
+          "Versioned payer-style rules define what counts as evidence.",
+          "Missing evidence triggers refusal-aware outputs instead of guessed approvals.",
+          "Structured evidence mapping keeps each blocker traceable.",
+          "Public artifacts include rules, contracts, failure modes, a model card, and a local demo UI."
         ],
         limitations: [
           "Not approval prediction and not a clinical decision tool.",
@@ -151,18 +148,22 @@
         artifactType: "Personal project",
         scopeLabel: "Pre-deployment evaluation artifact",
         summary:
-          "Clinical-style eval harness for groundedness, refusal behavior, and failure review.",
-        heroPreview:
-          "Clinical-style LLM evaluation for groundedness, refusal behavior, and failure analysis.",
-        bestFor:
-          "Eval, governance, and LLM safety conversations.",
-        tags: ["LLM eval", "Safety framing", "Failure analysis", "Governance"],
+          "Clinical-style evaluation harness that makes model failures visible before anyone talks about deployment.",
+        primaryProof:
+          "Proves benchmark discipline with strict reviewer artifacts, flagged-case review, and safety-first evaluator framing.",
+        proofNote:
+          "Pins model claims to one disclosed run instead of benchmark theater.",
+        tags: [
+          "Evaluator strictness",
+          "Flagged-case review",
+          "Safety credibility"
+        ],
         problemStatement:
           "In healthcare settings, plausible outputs are not enough. Teams need a concrete way to test groundedness, citations, uncertainty, refusal behavior, and obvious safety failures.",
         whatIBuilt:
           "A fixed benchmark flow that runs a structured dataset through one prompt template, scores outputs with explicit heuristics, flags concerning cases, and publishes reviewer-friendly artifacts.",
         whyItMatters:
-          "It treats evaluation as product work instead of after-the-fact QA or benchmark theater.",
+          "It treats evaluation as product work instead of after-the-fact QA or vague benchmark storytelling.",
         proofPoints: [
           "Public artifacts pin one explicit run with provider, model, run ID, and case count.",
           "Review outputs include raw generations, case scoring, flagged cases, a summary report, and safety docs.",
@@ -224,12 +225,16 @@
         artifactType: "Personal project",
         scopeLabel: "Held-out-hospital ranking study",
         summary:
-          "Retrospective ICU risk-ranking case study centered on alert budgets, temporal framing, and honest boundaries.",
-        heroPreview:
-          "Retrospective ICU case study with held-out hospital evaluation and alert-policy analysis.",
-        bestFor:
-          "Healthcare ML judgment and workflow-aware evaluation discussions.",
-        tags: ["Retrospective ML", "Alert budgets", "BigQuery ML", "Clinical workflow"],
+          "Retrospective ICU ranking study framed around alert budgets and operating-point judgment.",
+        primaryProof:
+          "Proves retrospective ML judgment with held-out evaluation, actionability focus, and honest non-deployment boundaries.",
+        proofNote:
+          "Treats alert burden and operating point as the real product question, not just headline metrics.",
+        tags: [
+          "Held-out evaluation",
+          "Alert-budget analysis",
+          "Non-deployment honesty"
+        ],
         problemStatement:
           "Rare-event ICU prediction is often sold with headline metrics that say little about alert burden, temporal correctness, or workflow fit.",
         whatIBuilt:
@@ -291,45 +296,59 @@
         ]
       }
     ],
-    supportingIntro: {
-      eyebrow: "Supporting work",
-      heading: "Supporting work.",
-      body: ""
+    secondaryIntro: {
+      eyebrow: "Secondary work",
+      heading: "Other builds and tools.",
+      body:
+        "Useful supporting projects and automations, intentionally kept out of the main recruiter path."
     },
-    supportingGroups: [
+    secondaryGroups: [
       {
-        title: "Supporting healthcare work",
-        note: "Healthcare workflow projects.",
+        title: "Supporting healthcare and tooling",
+        note: "Smaller proof points and operator tools.",
         items: [
           {
             title: "Outpatient Triage and Routing",
-            status: "Supporting healthcare MVP",
+            kind: "Supporting healthcare MVP",
             visibility: "Public repo",
-            summary:
-              "Safety-first outpatient triage MVP with deterministic routing and a separate LLM explanation layer.",
-            whyIncluded:
-              "Useful secondary proof of clinical workflow thinking and separation between rules and generation.",
+            descriptor: "Safety-first triage MVP",
             links: [
               {
                 label: "Repo",
                 url: "https://github.com/NickLeko/OutpatientTriageAndRouting"
               }
             ]
+          },
+          {
+            title: "Daily AI Digest",
+            kind: "Automation",
+            visibility: "Public repo",
+            descriptor: "Daily healthcare AI brief",
+            links: [
+              {
+                label: "Repo",
+                url: "https://github.com/NickLeko/daily-ai-digest"
+              }
+            ]
+          },
+          {
+            title: "Job Scanner Agent",
+            kind: "Automation",
+            visibility: "Private/local",
+            descriptor: "Private role-filtering workflow",
+            links: []
           }
         ]
       },
       {
         title: "Experiments",
-        note: "Browser-based projects.",
+        note: "Deliberately separate from the healthcare AI core story.",
         items: [
           {
             title: "Code Blue Defense",
-            status: "Experiment",
+            kind: "Browser experiment",
             visibility: "Public repo",
-            summary:
-              "Healthcare-themed browser tower defense game about protecting critical care zones from escalating emergency threats.",
-            whyIncluded:
-              "Shows interface craft and taste without pretending to be part of the core healthcare AI narrative.",
+            descriptor: "Healthcare tower defense game",
             links: [
               {
                 label: "Repo",
@@ -339,12 +358,9 @@
           },
           {
             title: "Orbit Rocket Game",
-            status: "Experiment",
+            kind: "Browser experiment",
             visibility: "Public repo",
-            summary:
-              "Arcade-style browser game about piloting a rocket through hazards, pickups, and score-chasing runs.",
-            whyIncluded:
-              "Shows interface craft and game feel without competing with the core healthcare AI portfolio story.",
+            descriptor: "Arcade browser game",
             links: [
               {
                 label: "Repo",
@@ -355,85 +371,25 @@
         ]
       }
     ],
-    automationIntro: {
-      eyebrow: "Automations",
-      heading: "Automations.",
-      body: "Admin and research workflows."
-    },
-    automations: [
-      {
-        title: "Daily AI Digest",
-        status: "Automation",
-        visibility: "Public repo",
-        summary:
-          "Scheduled healthcare AI digest that pulls from GitHub, RSS, and openFDA, then summarizes and emails a daily brief.",
-        whyIncluded:
-          "Good proof of signal curation, source prioritization, and lightweight operator-facing automation.",
-        links: [
-          {
-            label: "Repo",
-            url: "https://github.com/NickLeko/daily-ai-digest"
-          }
-        ]
-      },
-      {
-        title: "Job Scanner Agent",
-        status: "Automation",
-        visibility: "Private/local",
-        summary:
-          "Python workflow that scans curated job boards, filters roles, scores survivors, and sends a daily shortlist.",
-        whyIncluded:
-          "Shows a repeated portfolio pattern: rules before expensive model calls, structured outputs, and useful review surfaces.",
-        links: []
-      }
-    ],
-    buildIntro: {
-      eyebrow: "How I build",
-      heading: "How I build.",
-      body: ""
-    },
-    buildPrinciples: [
-      {
-        title: "Rules before LLMs when stakes are high",
-        body:
-          "If the workflow depends on evidence presence, threshold checks, or refusal semantics, I start with deterministic logic."
-      },
-      {
-        title: "Evals and monitoring matter",
-        body:
-          "Evaluation, maintenance boundaries, and drift monitoring belong in the product surface."
-      },
-      {
-        title: "Admin automation is a strong wedge",
-        body:
-          "A lot of practical healthcare AI value starts in repetitive admin work where structure and review save time."
-      },
-      {
-        title: "Human oversight stays in the loop",
-        body:
-          "The goal is rarely full autonomy. It is making systems easier for a human reviewer to trust, inspect, and correct."
-      }
-    ],
     about: {
       eyebrow: "Contact",
-      heading: "Healthcare AI / AI PM",
+      heading: "Links and context.",
       paragraphs: [
-        "Background in healthcare operations, payer workflow, device operations, and frontline clinical admin. That shows up here in workflow fit, reviewer burden, policy friction, alert fatigue, and operational trust.",
-        "Personal project work only. No employer products or deployed clinical systems are represented here."
+        "Background in healthcare operations, payer workflow, device operations, and frontline clinical admin. That shows up here in workflow fit, reviewer burden, policy friction, and alert-fatigue judgment.",
+        "All flagship work here is personal project work with explicit scope boundaries."
       ],
       highlights: [
-        "Healthcare operations and payer-provider workflow context",
-        "AI PM with eval and governance focus",
-        "Admin automation without autonomy hype",
-        "Personal project work separated from work experience"
+        "Healthcare ops context",
+        "AI PM and eval mindset",
+        "Personal project artifacts only"
       ]
     },
     onePager: {
       kicker: "Internal-share snapshot",
       headline:
-        "Healthcare AI / AI PM with strongest public work in workflow automation, evaluation, and governance-heavy systems.",
+        "Healthcare AI / AI PM with flagship public work in workflow automation, evaluation discipline, and governance-heavy systems.",
       profile:
-        "Healthcare operations professional and AI product builder focused on workflow fit, evaluation discipline, and governance-first design. Strongest public portfolio work spans prior authorization support, clinical-style LLM evaluation, and retrospective ICU risk modeling.",
+        "Healthcare operations professional and AI product builder with strongest public artifacts in prior authorization support, clinical-style LLM evaluation, and retrospective ICU risk modeling. The recurring pattern is governed workflow design, reviewer-facing outputs, and explicit scope boundaries.",
       forwardForTitle: "Forward if the role cares about",
       forwardFor: [
         "Healthcare AI PM and workflow product roles",
@@ -465,7 +421,7 @@
         }
       ],
       footerNote:
-        "Flagship projects are labeled as prototype, benchmark harness, or retrospective case study."
+        "Flagship projects are explicitly labeled as prototype, benchmark harness, or retrospective case study."
     }
   };
 
