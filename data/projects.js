@@ -385,19 +385,11 @@
       ]
     },
     onePager: {
-      kicker: "Internal-share snapshot",
       headline:
         "Healthcare AI / AI PM with flagship public work in workflow automation, evaluation discipline, and governance-heavy systems.",
       profile:
         "Healthcare operations professional and AI product builder with strongest public artifacts in prior authorization support, clinical-style LLM evaluation, and retrospective ICU risk modeling. The recurring pattern is governed workflow design, reviewer-facing outputs, and explicit scope boundaries.",
-      forwardForTitle: "Forward if the role cares about",
-      forwardFor: [
-        "Healthcare AI PM and workflow product roles",
-        "Provider or payer ops tooling",
-        "AI eval, governance, or safety-heavy teams",
-        "Admin-automation wedges in regulated settings"
-      ],
-      themesTitle: "Why the portfolio is credible",
+      themesTitle: "Common thread",
       themes: [
         {
           title: "Healthcare-native",

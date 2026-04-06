@@ -79,28 +79,18 @@
         )
         .join("");
 
-      const fitItems = data.onePager.forwardFor
-        .map((item) => `<li>${escapeHtml(item)}</li>`)
-        .join("");
-
       const linkLine = data.site.links
         .map((link) => `<a href="${escapeHtml(link.url)}">${escapeHtml(link.label)}</a>`)
         .join('<span class="divider">|</span>');
 
       root.innerHTML = `
         <header class="one-pager-header">
-          <div class="header-main">
-            <p class="eyebrow">${escapeHtml(data.onePager.kicker)}</p>
+          <div>
             <h1>${escapeHtml(data.site.owner)}</h1>
             <p class="subtitle">${escapeHtml(data.onePager.headline)}</p>
             <p class="profile">${escapeHtml(data.onePager.profile)}</p>
+            <p class="header-links">${linkLine}</p>
           </div>
-
-          <aside class="share-panel">
-            <p class="share-title">${escapeHtml(data.onePager.forwardForTitle)}</p>
-            <ul class="share-list">${fitItems}</ul>
-            <p class="share-links">${linkLine}</p>
-          </aside>
         </header>
 
         <section class="grid-shell">

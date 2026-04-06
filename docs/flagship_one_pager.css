@@ -116,9 +116,7 @@ a {
 }
 
 .one-pager-header {
-  display: grid;
-  grid-template-columns: minmax(0, 1.18fr) minmax(240px, 0.82fr);
-  gap: 20px;
+  display: block;
   padding-bottom: 0.18in;
   border-bottom: 1px solid var(--screen-line);
 }
@@ -155,44 +153,25 @@ a {
   line-height: 1.46;
 }
 
-.share-panel {
-  padding: 14px 15px;
-  border: 1px solid var(--screen-line);
-  border-radius: var(--screen-radius-lg);
-  background: rgba(255, 255, 255, 0.015);
-}
-
-.share-title {
-  margin: 0 0 10px;
-  color: var(--screen-accent);
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 8.2pt;
-  font-weight: 600;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-}
-
-.share-list {
-  margin: 0;
-  padding-left: 18px;
-  color: var(--screen-muted-strong);
-  font-size: 9pt;
-  line-height: 1.5;
-}
-
-.share-list li + li {
-  margin-top: 4px;
-}
-
-.share-links {
-  margin: 12px 0 0;
+.header-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  margin: 11px 0 0;
   color: var(--screen-muted);
-  font-size: 8.5pt;
-  line-height: 1.5;
+  font-size: 8.35pt;
+  line-height: 1.45;
 }
 
-.share-links a {
+.header-links a {
+  color: var(--screen-muted-strong);
   text-decoration: none;
+}
+
+.header-links a:hover,
+.header-links a:focus-visible {
+  color: var(--screen-text);
 }
 
 .divider {
@@ -335,7 +314,6 @@ a {
     padding: 22px;
   }
 
-  .one-pager-header,
   .grid-shell,
   .theme-stack {
     grid-template-columns: 1fr;
@@ -376,7 +354,6 @@ a {
   }
 
   .one-pager-header {
-    gap: 12px;
     padding-bottom: 0.1in;
     border-bottom: 1px solid var(--line);
   }
@@ -409,34 +386,15 @@ a {
     line-height: 1.22;
   }
 
-  .share-panel {
-    padding: 9px 10px;
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.46);
-  }
-
-  .share-title {
-    margin-bottom: 6px;
-    color: var(--accent);
-    font-size: 7.4pt;
-  }
-
-  .share-list {
-    color: var(--ink);
-    font-size: 7.8pt;
-    line-height: 1.2;
-  }
-
-  .share-list li + li {
-    margin-top: 2px;
-  }
-
-  .share-links {
+  .header-links {
     margin-top: 7px;
     color: var(--muted);
     font-size: 7.4pt;
     line-height: 1.2;
+  }
+
+  .header-links a {
+    color: var(--muted);
   }
 
   .divider {
