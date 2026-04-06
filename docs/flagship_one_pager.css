@@ -1,4 +1,20 @@
 :root {
+  --screen-bg: #080b10;
+  --screen-bg-deep: #04060a;
+  --screen-surface: rgba(10, 13, 17, 0.95);
+  --screen-surface-soft: rgba(12, 16, 20, 0.9);
+  --screen-line: rgba(255, 255, 255, 0.08);
+  --screen-line-strong: rgba(255, 255, 255, 0.14);
+  --screen-text: #f2f5f8;
+  --screen-muted: #8b949f;
+  --screen-muted-strong: #c6ced7;
+  --screen-accent: #a7b7ca;
+  --screen-accent-strong: #eef3f8;
+  --screen-shadow: 0 18px 48px rgba(0, 0, 0, 0.24);
+  --screen-radius-xl: 26px;
+  --screen-radius-lg: 18px;
+  --screen-radius-md: 14px;
+
   --paper: #f6f4ee;
   --ink: #111719;
   --muted: #56615e;
@@ -11,11 +27,31 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  background: #e8e6de;
-  color: var(--ink);
+  background:
+    radial-gradient(circle at 50% -10%, rgba(132, 150, 176, 0.12), transparent 36%),
+    linear-gradient(180deg, var(--screen-bg) 0%, #06080c 46%, var(--screen-bg-deep) 100%);
+  color: var(--screen-text);
   font-family: "IBM Plex Sans", sans-serif;
+  line-height: 1.55;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(160, 190, 216, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(160, 190, 216, 0.018) 1px, transparent 1px);
+  background-size: 220px 220px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.22), transparent 82%);
+  opacity: 0.18;
+  pointer-events: none;
 }
 
 a {
@@ -23,25 +59,38 @@ a {
 }
 
 .page-actions {
+  position: sticky;
+  top: 14px;
+  z-index: 10;
   display: flex;
-  justify-content: center;
-  gap: 12px;
-  padding: 18px 16px 0;
+  justify-content: flex-end;
+  gap: 10px;
+  width: min(8.5in, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 14px 0 0;
 }
 
 .action-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 42px;
-  padding: 10px 16px;
-  border: 1px solid rgba(17, 23, 25, 0.14);
+  min-height: 38px;
+  padding: 8px 13px;
+  border: 1px solid var(--screen-line);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.8);
-  color: var(--ink);
-  font-size: 0.92rem;
-  font-weight: 600;
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--screen-text);
+  font-size: 0.83rem;
+  font-weight: 500;
   text-decoration: none;
+  backdrop-filter: blur(14px);
+  transition: border-color 140ms ease, background 140ms ease, color 140ms ease;
+}
+
+.action-link:hover,
+.action-link:focus-visible {
+  border-color: var(--screen-line-strong);
+  background: rgba(255, 255, 255, 0.035);
 }
 
 .action-button {
@@ -49,74 +98,86 @@ a {
   font: inherit;
 }
 
+.page-actions .action-link:last-child {
+  border-color: var(--screen-text);
+  background: var(--screen-text);
+  color: #0b1016;
+}
+
 .one-pager {
   width: min(8.5in, calc(100vw - 32px));
   min-height: 11in;
-  margin: 18px auto 28px;
+  margin: 16px auto 28px;
   padding: 0.42in;
-  background: var(--paper);
-  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.16);
+  border: 1px solid var(--screen-line);
+  border-radius: var(--screen-radius-xl);
+  background: linear-gradient(180deg, var(--screen-surface), rgba(7, 10, 13, 0.93));
+  box-shadow: var(--screen-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.02);
 }
 
 .one-pager-header {
   display: grid;
   grid-template-columns: minmax(0, 1.18fr) minmax(240px, 0.82fr);
   gap: 20px;
-  padding-bottom: 0.2in;
-  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.18in;
+  border-bottom: 1px solid var(--screen-line);
 }
 
 .eyebrow {
   margin: 0 0 7px;
-  color: var(--accent);
+  color: var(--screen-accent);
   font-family: "IBM Plex Mono", monospace;
-  font-size: 9pt;
+  font-size: 8.5pt;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .one-pager h1 {
   margin: 0;
+  color: var(--screen-text);
   font-size: 24pt;
-  line-height: 1;
+  line-height: 0.98;
+  letter-spacing: -0.05em;
 }
 
 .subtitle {
   margin: 8px 0 0;
-  color: var(--muted);
-  font-size: 10.5pt;
-  line-height: 1.35;
+  color: var(--screen-muted-strong);
+  font-size: 10.3pt;
+  line-height: 1.36;
 }
 
 .profile {
   margin: 14px 0 0;
-  font-size: 10pt;
-  line-height: 1.42;
+  color: var(--screen-muted-strong);
+  font-size: 9.85pt;
+  line-height: 1.46;
 }
 
 .share-panel {
   padding: 14px 15px;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.46);
+  border: 1px solid var(--screen-line);
+  border-radius: var(--screen-radius-lg);
+  background: rgba(255, 255, 255, 0.015);
 }
 
 .share-title {
   margin: 0 0 10px;
-  color: var(--accent);
+  color: var(--screen-accent);
   font-family: "IBM Plex Mono", monospace;
-  font-size: 8.6pt;
+  font-size: 8.2pt;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
 }
 
 .share-list {
   margin: 0;
   padding-left: 18px;
-  font-size: 9.2pt;
-  line-height: 1.45;
+  color: var(--screen-muted-strong);
+  font-size: 9pt;
+  line-height: 1.5;
 }
 
 .share-list li + li {
@@ -125,7 +186,8 @@ a {
 
 .share-links {
   margin: 12px 0 0;
-  font-size: 8.9pt;
+  color: var(--screen-muted);
+  font-size: 8.5pt;
   line-height: 1.5;
 }
 
@@ -136,18 +198,18 @@ a {
 .divider {
   display: inline-block;
   margin: 0 6px;
-  color: var(--muted);
+  color: var(--screen-muted);
 }
 
 .grid-shell {
   display: grid;
   grid-template-columns: minmax(0, 1.38fr) minmax(240px, 0.84fr);
-  gap: 16px;
-  padding-top: 0.2in;
+  gap: 14px;
+  padding-top: 0.18in;
 }
 
 .section-block + .section-block {
-  margin-top: 12px;
+  margin-top: 10px;
 }
 
 .project-stack,
@@ -159,9 +221,9 @@ a {
 .project-card,
 .theme-card,
 .note-block {
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.46);
+  border: 1px solid var(--screen-line);
+  border-radius: var(--screen-radius-lg);
+  background: rgba(255, 255, 255, 0.015);
 }
 
 .project-card {
@@ -177,40 +239,44 @@ a {
 
 .project-status {
   margin: 0 0 5px;
-  color: var(--accent);
+  color: var(--screen-accent);
   font-family: "IBM Plex Mono", monospace;
-  font-size: 8.4pt;
+  font-size: 7.9pt;
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .project-card h2 {
   margin: 0;
-  font-size: 13.8pt;
-  line-height: 1.12;
+  color: var(--screen-text);
+  font-size: 13.4pt;
+  line-height: 1.14;
+  letter-spacing: -0.03em;
 }
 
 .project-boundary {
   max-width: 18ch;
   padding: 4px 8px;
+  border: 1px solid var(--screen-line);
   border-radius: 999px;
-  background: var(--accent-soft);
-  color: var(--accent);
-  font-size: 8.1pt;
-  font-weight: 600;
+  background: rgba(255, 255, 255, 0.018);
+  color: var(--screen-muted-strong);
+  font-size: 7.6pt;
+  font-weight: 500;
   text-align: center;
 }
 
 .project-summary,
 .project-proof {
   margin: 8px 0 0;
-  font-size: 9.35pt;
-  line-height: 1.38;
+  color: var(--screen-muted-strong);
+  font-size: 9.1pt;
+  line-height: 1.44;
 }
 
 .project-proof strong {
-  color: var(--ink);
+  color: var(--screen-text);
 }
 
 .signal-row {
@@ -222,11 +288,12 @@ a {
 
 .signal-pill {
   padding: 3px 7px;
+  border: 1px solid var(--screen-line);
   border-radius: 999px;
-  background: rgba(17, 23, 25, 0.06);
-  color: var(--muted);
-  font-size: 8pt;
-  font-weight: 600;
+  background: rgba(255, 255, 255, 0.018);
+  color: var(--screen-muted);
+  font-size: 7.6pt;
+  font-weight: 500;
 }
 
 .theme-stack {
@@ -240,20 +307,30 @@ a {
 
 .theme-card h3 {
   margin: 0 0 5px;
-  font-size: 10pt;
+  color: var(--screen-text);
+  font-size: 9.6pt;
+  line-height: 1.2;
 }
 
 .theme-card p,
 .note-block p {
   margin: 0;
-  color: var(--muted);
-  font-size: 8.9pt;
-  line-height: 1.38;
+  color: var(--screen-muted);
+  font-size: 8.6pt;
+  line-height: 1.42;
 }
 
 @media (max-width: 900px) {
+  .page-actions,
   .one-pager {
     width: calc(100vw - 24px);
+  }
+
+  .page-actions {
+    justify-content: flex-start;
+  }
+
+  .one-pager {
     min-height: auto;
     padding: 22px;
   }
@@ -273,6 +350,14 @@ a {
 @media print {
   body {
     background: #fff;
+    color: var(--ink);
+    line-height: 1.42;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  body::before {
+    display: none;
   }
 
   .page-actions {
@@ -284,45 +369,61 @@ a {
     min-height: auto;
     margin: 0;
     padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: var(--paper);
     box-shadow: none;
   }
 
   .one-pager-header {
     gap: 12px;
     padding-bottom: 0.1in;
+    border-bottom: 1px solid var(--line);
   }
 
   .eyebrow {
     margin-bottom: 4px;
+    color: var(--accent);
     font-size: 7.8pt;
+    letter-spacing: 0.08em;
   }
 
   .one-pager h1 {
+    color: var(--ink);
     font-size: 20.5pt;
+    line-height: 1;
+    letter-spacing: 0;
   }
 
   .subtitle {
     margin-top: 4px;
+    color: var(--muted);
     font-size: 9pt;
     line-height: 1.22;
   }
 
   .profile {
     margin-top: 8px;
+    color: var(--ink);
     font-size: 8.8pt;
     line-height: 1.22;
   }
 
   .share-panel {
     padding: 9px 10px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.46);
   }
 
   .share-title {
     margin-bottom: 6px;
+    color: var(--accent);
     font-size: 7.4pt;
   }
 
   .share-list {
+    color: var(--ink);
     font-size: 7.8pt;
     line-height: 1.2;
   }
@@ -333,8 +434,13 @@ a {
 
   .share-links {
     margin-top: 7px;
+    color: var(--muted);
     font-size: 7.4pt;
     line-height: 1.2;
+  }
+
+  .divider {
+    color: var(--muted);
   }
 
   .grid-shell {
@@ -351,29 +457,48 @@ a {
     gap: 6px;
   }
 
+  .project-card,
+  .theme-card,
+  .note-block {
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.46);
+  }
+
   .project-card {
     padding: 8px 9px;
   }
 
   .project-card h2 {
+    color: var(--ink);
     font-size: 11.8pt;
+    letter-spacing: 0;
   }
 
   .project-status {
     margin-bottom: 3px;
+    color: var(--accent);
     font-size: 7.2pt;
   }
 
   .project-boundary {
     padding: 3px 5px;
+    border: 0;
+    background: var(--accent-soft);
+    color: var(--accent);
     font-size: 7pt;
+    font-weight: 600;
   }
 
   .project-summary,
   .project-proof {
     margin-top: 6px;
+    color: var(--ink);
     font-size: 7.9pt;
     line-height: 1.16;
+  }
+
+  .project-proof strong {
+    color: var(--ink);
   }
 
   .signal-row {
@@ -383,7 +508,11 @@ a {
 
   .signal-pill {
     padding: 2px 5px;
+    border: 0;
+    background: rgba(17, 23, 25, 0.06);
+    color: var(--muted);
     font-size: 6.8pt;
+    font-weight: 600;
   }
 
   .theme-card,
@@ -393,11 +522,13 @@ a {
 
   .theme-card h3 {
     margin-bottom: 3px;
+    color: var(--ink);
     font-size: 8.8pt;
   }
 
   .theme-card p,
   .note-block p {
+    color: var(--muted);
     font-size: 7.6pt;
     line-height: 1.16;
   }
