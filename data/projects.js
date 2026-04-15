@@ -4,7 +4,7 @@
       owner: "Nicholas Leko",
       role: "Healthcare AI product builder",
       statement:
-        "Healthcare AI product work across workflow automation, evaluation discipline, and governance-heavy systems.",
+        "Healthcare AI product work across workflow automation, evaluation discipline, and governed healthcare workflows.",
       disclaimer:
         "Everything here is labeled as a personal project, portfolio prototype, benchmark harness, retrospective case study, or private/local workflow. Nothing is presented as an employer product or deployed clinical system unless explicitly stated.",
       links: [
@@ -40,20 +40,20 @@
       kicker: "Healthcare AI / AI PM",
       title: "Healthcare AI product work for governed workflows.",
       intro:
-        "I build healthcare AI portfolio artifacts around prior authorization support, clinical-style LLM evaluation, and ICU risk analysis. The common thread is rules-first design, reviewable outputs, and honest scope boundaries.",
+        "I build healthcare AI portfolio artifacts around prior authorization support, clinical-style LLM evaluation, and ICU risk analysis. The common thread is rules-first design, reviewer-facing outputs, and explicit scope boundaries.",
       note:
         "Personal projects only: prototype, benchmark harness, and retrospective case study.",
       pillars: [
         "Workflow automation",
         "Evaluation discipline",
-        "Honest scope boundaries"
+        "Explicit scope boundaries"
       ]
     },
     ctaBanner: {
       eyebrow: "Recruiter shortcut",
       heading: "Start with the flagship one-pager.",
       body:
-        "Best first click if you want the three core projects, what each proves, and the scope boundaries in one page.",
+        "Best first click if you want the three core projects, what each contains, and the scope boundaries in one page.",
       note:
         "Then use the homepage for screenshots, case-study detail, and supporting work."
     },
@@ -61,7 +61,7 @@
       eyebrow: "Flagship healthcare AI work",
       heading: "Three flagship projects.",
       body:
-        "These are the main public proof points. Each one is positioned to show a different kind of product judgment."
+        "These are the main public artifacts: workflow readiness review, clinical-style LLM evaluation, and retrospective ICU alert analysis."
     },
     flagshipProjects: [
       {
@@ -73,9 +73,14 @@
         summary:
           "Rules-first prior auth readiness review for administrative workflows before submission.",
         primaryProof:
-          "Proves workflow automation with versioned rules, evidence mapping, and refusal-aware support.",
+          "Workflow readiness prototype with versioned rules, evidence mapping, and refusal-aware support.",
         proofNote:
           "Turns missing documentation into an explicit review state instead of a hidden guess.",
+        evidenceBullets: [
+          "READY, NOT_READY, and CANNOT_DETERMINE states with evidence mapping.",
+          "Versioned payer-style rules define what counts as evidence.",
+          "Failure modes document is linked for review."
+        ],
         tags: [
           "Workflow automation",
           "Rules-first governance",
@@ -86,7 +91,7 @@
         whatIBuilt:
           "A deterministic extraction and requirement-checking flow against versioned payer-style rules, with READY, NOT_READY, and CANNOT_DETERMINE outputs plus evidence mapping.",
         whyItMatters:
-          "It makes pre-submit review inspectable and governable instead of relying on vague judgment about whether a packet looks complete.",
+          "It makes pre-submit review inspectable and governable instead of relying on a loose judgment about whether a packet looks complete.",
         proofPoints: [
           "Versioned payer-style rules define what counts as evidence.",
           "Missing evidence triggers refusal-aware outputs instead of guessed approvals.",
@@ -134,7 +139,7 @@
         onePagerSummary:
           "Rules-first prior auth readiness review using deterministic extraction, requirement-level checks, and explicit refusal when evidence is missing.",
         onePagerWhy:
-          "Strong proof of workflow realism, refusal semantics, and auditability in an admin-heavy healthcare problem.",
+          "Shows workflow realism, refusal semantics, and auditability in an admin-heavy healthcare problem.",
         onePagerSignals: [
           "Workflow realism",
           "Refusal-first design",
@@ -150,20 +155,25 @@
         summary:
           "Clinical-style evaluation harness that makes model failures visible before anyone talks about deployment.",
         primaryProof:
-          "Proves benchmark discipline with strict reviewer artifacts, flagged-case review, and safety-first evaluator framing.",
+          "Benchmark harness with reviewer artifacts, flagged-case review, and safety-first evaluator framing.",
         proofNote:
-          "Pins model claims to one disclosed run instead of benchmark theater.",
+          "Published model claims are tied to one disclosed run.",
+        evidenceBullets: [
+          "Run manifest, raw generations, scored cases, flagged cases, and summary report.",
+          "Results summary and reviewer guide are linked for review.",
+          "Safety and faithfulness checks are labeled heuristic and incomplete."
+        ],
         tags: [
           "Evaluator strictness",
           "Flagged-case review",
-          "Safety credibility"
+          "Safety review"
         ],
         problemStatement:
           "In healthcare settings, plausible outputs are not enough. Teams need a concrete way to test groundedness, citations, uncertainty, refusal behavior, and obvious safety failures.",
         whatIBuilt:
           "A fixed benchmark flow that runs a structured dataset through one prompt template, scores outputs with explicit heuristics, flags concerning cases, and publishes reviewer-friendly artifacts.",
         whyItMatters:
-          "It treats evaluation as product work instead of after-the-fact QA or vague benchmark storytelling.",
+          "It treats evaluation as product work instead of after-the-fact QA or broad benchmark claims.",
         proofPoints: [
           "Public artifacts pin one explicit run with provider, model, run ID, and case count.",
           "Review outputs include raw generations, case scoring, flagged cases, a summary report, and safety docs.",
@@ -211,7 +221,7 @@
         onePagerSummary:
           "Safety-oriented LLM evaluation harness for clinical-style outputs, focused on groundedness, citations, uncertainty, refusal, and unsafe recommendation flags.",
         onePagerWhy:
-          "Strong proof of benchmark discipline, failure analysis, and governance-first thinking around LLM behavior.",
+          "Shows benchmark discipline, failure analysis, and governance-first thinking around LLM behavior.",
         onePagerSignals: [
           "Eval judgment",
           "Failure analysis",
@@ -227,13 +237,18 @@
         summary:
           "Retrospective ICU ranking study framed around alert budgets and operating-point judgment.",
         primaryProof:
-          "Proves retrospective ML judgment with held-out evaluation, actionability focus, and honest non-deployment boundaries.",
+          "Retrospective ML case study with held-out evaluation, actionability focus, and non-deployment boundaries.",
         proofNote:
-          "Treats alert burden and operating point as the real product question, not just headline metrics.",
+          "Keeps alert burden and operating-point tradeoffs visible alongside ranking output.",
+        evidenceBullets: [
+          "Six-hour lookback ranks patient-hours for risk in the next two hours.",
+          "Published evaluation uses hospital-level held-out testing.",
+          "Top 0.5 percent of scored test rows shows 13.55x enrichment over test prevalence."
+        ],
         tags: [
           "Held-out evaluation",
           "Alert-budget analysis",
-          "Non-deployment honesty"
+          "Non-deployment boundaries"
         ],
         problemStatement:
           "Rare-event ICU prediction is often sold with headline metrics that say little about alert burden, temporal correctness, or workflow fit.",
@@ -286,13 +301,13 @@
           }
         ],
         onePagerSummary:
-          "Interpretable ICU risk-ranking case study using eICU-CRD, held-out hospital evaluation, and alert-budget analysis instead of headline-metric theater.",
+          "Interpretable ICU risk-ranking case study using eICU-CRD, held-out hospital evaluation, and alert-budget analysis.",
         onePagerWhy:
-          "Strong proof of alert-budget discipline, reproducibility, and honest clinical boundaries in retrospective ML work.",
+          "Shows alert-budget discipline, reproducibility, and clinical scope boundaries in retrospective ML work.",
         onePagerSignals: [
           "Temporal correctness",
           "Workflow-aware evaluation",
-          "Honest clinical boundaries"
+          "Clinical scope boundaries"
         ]
       }
     ],
@@ -305,7 +320,7 @@
     secondaryGroups: [
       {
         title: "Supporting healthcare and tooling",
-        note: "Smaller proof points and operator tools.",
+        note: "Smaller tools and operator workflows.",
         items: [
           {
             title: "Outpatient Triage and Routing",
@@ -341,8 +356,9 @@
         ]
       },
       {
-        title: "Experiments",
-        note: "Deliberately separate from the healthcare AI core story.",
+        title: "Optional experiments",
+        note: "Collapsed so the healthcare AI review path stays primary.",
+        collapsed: true,
         items: [
           {
             title: "Code Blue Defense",
@@ -386,9 +402,9 @@
     },
     onePager: {
       headline:
-        "Healthcare AI / AI PM with flagship public work in workflow automation, evaluation discipline, and governance-heavy systems.",
+        "Healthcare AI / AI PM with flagship public work in workflow automation, evaluation discipline, and governed healthcare workflows.",
       profile:
-        "Healthcare operations professional and AI product builder with strongest public artifacts in prior authorization support, clinical-style LLM evaluation, and retrospective ICU risk modeling. The recurring pattern is governed workflow design, reviewer-facing outputs, and explicit scope boundaries.",
+        "Healthcare operations professional and AI product builder with public artifacts in prior authorization support, clinical-style LLM evaluation, and retrospective ICU risk modeling. The recurring pattern is governed workflow design, reviewer-facing outputs, and explicit scope boundaries.",
       themesTitle: "Common thread",
       themes: [
         {
@@ -404,7 +420,7 @@
         {
           title: "Workflow-focused",
           body:
-            "The goal is better review, routing, or prioritization rather than vague automation claims."
+            "The goal is better review, routing, or prioritization rather than broad automation framing."
         },
         {
           title: "Eval-aware",

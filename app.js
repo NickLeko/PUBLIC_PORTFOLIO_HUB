@@ -141,6 +141,10 @@
         const limitations = project.limitations
           .map((item) => `<li>${escapeHtml(item)}</li>`)
           .join("");
+        const evidence = (project.evidenceBullets || project.proofPoints.slice(0, 3))
+          .map((point) => `<li>${escapeHtml(point)}</li>`)
+          .join("");
+        const reviewLinks = renderCompactLinks(project.links, "No public links");
         const screenshots = project.screenshots
           .map(
             (shot) => `
@@ -178,9 +182,20 @@
                 </div>
 
                 <div class="flagship-proof">
-                  <span class="flagship-callout-label">Clear proof</span>
+                  <span class="flagship-callout-label">Artifact focus</span>
                   <p class="flagship-proof-copy">${escapeHtml(project.primaryProof)}</p>
                   <p class="flagship-proof-note">${escapeHtml(project.proofNote)}</p>
+                </div>
+
+                <div class="flagship-evidence">
+                  <div>
+                    <span class="flagship-callout-label">Evidence to review</span>
+                    <ul class="flagship-evidence-list">${evidence}</ul>
+                  </div>
+                  <div class="flagship-review-links">
+                    <span class="detail-links-label">Review links</span>
+                    ${reviewLinks}
+                  </div>
                 </div>
 
                 <div class="tag-row">${tags}</div>
@@ -273,6 +288,21 @@
             `
           )
           .join("");
+
+        if (group.collapsed) {
+          return `
+            <details class="secondary-group secondary-group-collapsed">
+              <summary class="secondary-collapse-summary">
+                <div class="group-heading">
+                  <h3>${escapeHtml(group.title)}</h3>
+                  ${group.note ? `<p>${escapeHtml(group.note)}</p>` : ""}
+                </div>
+                <span class="secondary-collapse-action" aria-hidden="true"></span>
+              </summary>
+              <div class="secondary-grid">${items}</div>
+            </details>
+          `;
+        }
 
         return `
           <section class="secondary-group">
