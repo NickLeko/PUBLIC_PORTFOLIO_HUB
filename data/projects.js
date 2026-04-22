@@ -319,39 +319,44 @@
     },
     secondaryGroups: [
       {
-        title: "Supporting healthcare and tooling",
-        note: "Smaller tools and operator workflows.",
+        title: "Supporting healthcare workflow systems",
+        note: "Public supporting systems for interoperability, bounded orchestration, and signal triage.",
         items: [
           {
-            title: "Outpatient Triage and Routing",
-            kind: "Supporting healthcare MVP",
+            title: "FHIR Referral Intake Review",
+            kind: "Interoperability workflow",
             visibility: "Public repo",
-            descriptor: "Safety-first triage MVP",
+            descriptor: "FHIR intake review with source traceability",
             links: [
               {
                 label: "Repo",
-                url: "https://github.com/NickLeko/OutpatientTriageAndRouting"
+                url: "https://github.com/NickLeko/FHIR-Referral-Intake-Review"
+              }
+            ]
+          },
+          {
+            title: "Prior Auth Readiness Handoff Agent",
+            kind: "Workflow orchestration",
+            visibility: "Public repo",
+            descriptor: "Bounded orchestration with explicit human review",
+            links: [
+              {
+                label: "Repo",
+                url: "https://github.com/NickLeko/prior-auth-readiness-handoff-agent"
               }
             ]
           },
           {
             title: "Daily AI Digest",
-            kind: "Automation",
+            kind: "Operational intelligence",
             visibility: "Public repo",
-            descriptor: "Daily healthcare AI brief",
+            descriptor: "Signal triage for healthcare AI developments",
             links: [
               {
                 label: "Repo",
                 url: "https://github.com/NickLeko/daily-ai-digest"
               }
             ]
-          },
-          {
-            title: "Job Scanner Agent",
-            kind: "Automation",
-            visibility: "Private/local",
-            descriptor: "Private role-filtering workflow",
-            links: []
           }
         ]
       },
