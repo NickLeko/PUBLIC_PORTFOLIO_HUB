@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nicholas Leko | Flagship One-Pager</title>
+  <title>Nicholas Leko | Hiring Brief</title>
   <meta
     name="description"
-    content="Printable one-page summary of Nicholas Leko's flagship healthcare AI portfolio projects."
+    content="Printable hiring brief for Nicholas Leko's flagship healthcare AI portfolio projects."
   >
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,7 @@
     <button class="action-link action-button" type="button" onclick="window.print()">Print / Save as PDF</button>
   </div>
 
-  <main id="one-pager" class="one-pager" aria-label="Flagship portfolio one-pager"></main>
+  <main id="one-pager" class="one-pager" aria-label="Flagship portfolio hiring brief"></main>
 
   <script src="../data/projects.js"></script>
   <script>
@@ -57,7 +57,7 @@
                 <span class="project-boundary">${escapeHtml(project.scopeLabel)}</span>
               </div>
               <p class="project-summary">${escapeHtml(project.onePagerSummary)}</p>
-              <p class="project-proof"><strong>Why it stands out:</strong> ${escapeHtml(project.onePagerWhy)}</p>
+              <p class="project-proof"><strong>Review focus:</strong> ${escapeHtml(project.onePagerWhy)}</p>
               <div class="signal-row">
                 ${project.onePagerSignals
                   .map((signal) => `<span class="signal-pill">${escapeHtml(signal)}</span>`)

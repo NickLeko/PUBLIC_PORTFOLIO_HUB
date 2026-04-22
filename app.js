@@ -33,7 +33,8 @@
     document.getElementById("site-nav").innerHTML = data.navigation
       .map((item) => {
         const isInternal = item.href.startsWith("#") || item.href.endsWith(".html");
-        return `<a href="${esc(item.href)}"${isInternal ? "" : ` ${ext}`}>${esc(item.label)}</a>`;
+        const extraClass = item.label === "Review code" ? ` class="nav-review-link"` : "";
+        return `<a${extraClass} href="${esc(item.href)}"${isInternal ? "" : ` ${ext}`}>${esc(item.label)}</a>`;
       })
       .join("");
   }
@@ -53,7 +54,8 @@
         </a>`)
       .join("");
 
-    const onePager = siteLink("One-pager");
+    const hiringBrief = siteLink("Hiring brief");
+    const github = siteLink("GitHub");
     const email = siteLink("Email");
 
     document.getElementById("hero").innerHTML = `
@@ -63,38 +65,40 @@
           <h1 class="hero-title">${esc(h.title)}</h1>
           <p class="hero-sub">${esc(h.intro)}</p>
           <div class="hero-actions">
-            ${onePager ? `<a class="btn btn-primary" href="${esc(onePager.url)}">View one-pager</a>` : ""}
-            <a class="btn btn-secondary" href="#flagship">See flagship work</a>
+            ${hiringBrief ? `<a class="btn btn-primary" href="${esc(hiringBrief.url)}">Open hiring brief</a>` : ""}
+            ${github ? `<a class="btn btn-secondary" href="${esc(github.url)}" ${ext}>Review code</a>` : ""}
+            <a class="btn btn-ghost" href="#flagship">See flagship work</a>
             ${email ? `<a class="btn btn-ghost" href="${esc(email.url)}">Contact</a>` : ""}
           </div>
           <p class="hero-note">${esc(h.note)}</p>
         </div>
         <div class="hero-right">
-          <div class="hero-projects-label">Flagship projects</div>
+          <div class="hero-projects-label">Flagship review paths</div>
           <div class="hero-projects">${projects}</div>
         </div>
       </div>`;
   }
 
-  /* ── Credibility signals strip ── */
+  /* ── Proof strip ── */
   function renderSignals() {
-    const signals = [
-      "Healthcare-native",
-      "Governance-first",
-      "Eval-aware",
-      "Workflow-focused",
-      "Scope-bounded"
-    ];
-    const items = signals
-      .map((s) => `<div class="signal-item"><span class="signal-dot"></span><span class="signal-label">${esc(s)}</span></div>`)
+    const items = (data.proofStrip?.items || [])
+      .map((item) => `
+        <article class="proof-item">
+          <div class="proof-title">${esc(item.title)}</div>
+          <p class="proof-detail">${esc(item.detail)}</p>
+        </article>`)
       .join("");
-    document.getElementById("signals").innerHTML = `<div class="signals-inner">${items}</div>`;
+    document.getElementById("signals").innerHTML = `
+      <div class="signals-inner">
+        <div class="signals-kicker">Proof surface</div>
+        <div class="signals-grid">${items}</div>
+      </div>`;
   }
 
   /* ── Recruiter CTA band ── */
   function renderCta() {
     const cta = data.ctaBanner;
-    const onePager = siteLink("One-pager");
+    const hiringBrief = siteLink("Hiring brief");
     const github = siteLink("GitHub");
     const linkedin = siteLink("LinkedIn");
 
@@ -107,8 +111,8 @@
           <p class="cta-band-note">${esc(cta.note)}</p>
         </div>
         <div class="cta-band-actions">
-          ${onePager ? `<a class="btn btn-primary" href="${esc(onePager.url)}">Open one-pager →</a>` : ""}
-          ${github ? `<a class="btn btn-ghost" href="${esc(github.url)}" ${ext}>${esc(github.label)}</a>` : ""}
+          ${hiringBrief ? `<a class="btn btn-primary" href="${esc(hiringBrief.url)}">Open hiring brief →</a>` : ""}
+          ${github ? `<a class="btn btn-ghost" href="${esc(github.url)}" ${ext}>Review code</a>` : ""}
           ${linkedin ? `<a class="btn btn-ghost" href="${esc(linkedin.url)}" ${ext}>${esc(linkedin.label)}</a>` : ""}
         </div>
       </div>`;
@@ -124,7 +128,8 @@
       const tags = p.tags.map((t) => `<span class="tag-pill">${esc(t)}</span>`).join("");
       const proofPoints = p.proofPoints.map((pt) => `<li>${esc(pt)}</li>`).join("");
       const limitations = p.limitations.map((l) => `<li>${esc(l)}</li>`).join("");
-      const primaryShot = p.screenshots[0];
+      const reviewLinks = (p.links || []).slice(0, 3);
+      const primaryShot = p.screenshots[p.closedCardShotIndex] || p.screenshots[0];
       const screenshots = p.screenshots.map((s) => `
         <div class="screenshot-card">
           <a class="screenshot-frame" href="${esc(s.src)}" ${ext}>
@@ -155,12 +160,12 @@
 
               <div class="flagship-info-grid">
                 <div class="flagship-info-block">
-                  <span class="info-label">Artifact focus</span>
+                  <span class="info-label">Review surface</span>
                   <p class="info-body">${esc(p.primaryProof)}</p>
                 </div>
                 <div class="flagship-info-block">
-                  <span class="info-label">Why it matters</span>
-                  <p class="info-body">${esc(p.whyItMatters)}</p>
+                  <span class="info-label">What stays visible</span>
+                  <p class="info-body">${esc(p.proofNote)}</p>
                 </div>
               </div>
 
@@ -169,9 +174,13 @@
                 <ul class="evidence-list">${evidence}</ul>
               </div>
 
+              <div class="flagship-review-block">
+                <span class="info-label">Review code and docs</span>
+                ${linkRowHtml(reviewLinks, "No public links")}
+              </div>
+
               <div class="flagship-footer-row">
                 <div class="tag-row">${tags}</div>
-                ${linkRowHtml(p.links, "No public links")}
               </div>
             </div>
 
@@ -180,13 +189,16 @@
                 <a class="flagship-thumb" href="${esc(primaryShot.src)}" ${ext}>
                   <img src="${esc(primaryShot.src)}" alt="${esc(primaryShot.alt)}" loading="lazy">
                 </a>
-                <p class="flagship-thumb-caption">${esc(primaryShot.title)}</p>
+                <div class="flagship-thumb-caption">
+                  <div class="flagship-thumb-title">${esc(primaryShot.title)}</div>
+                  <div class="flagship-thumb-note">${esc(primaryShot.note)}</div>
+                </div>
               </aside>` : ""}
           </div>
 
           <details class="flagship-details">
             <summary class="flagship-summary-bar">
-              <span class="summary-bar-label">Case study details — problem, what I built, proof points, scope boundaries</span>
+              <span class="summary-bar-label">Case study details, review artifacts, and scope boundaries</span>
               <span class="summary-bar-toggle">
                 <span class="toggle-closed">Expand ↓</span>
                 <span class="toggle-open">Collapse ↑</span>
@@ -209,7 +221,7 @@
               </div>
               <div class="detail-2col">
                 <div class="detail-block">
-                  <h4>Credibility signals</h4>
+                  <h4>Reviewable evidence</h4>
                   <ul class="bullet-list">${proofPoints}</ul>
                 </div>
                 <div class="detail-block">
@@ -318,7 +330,7 @@
         </article>
         <aside class="contact-card">
           <h3>Quick links</h3>
-          <p>One-pager, GitHub, LinkedIn, and direct contact.</p>
+          <p>Hiring brief, GitHub, LinkedIn, and direct contact.</p>
           <div class="contact-list">${contactLinks}</div>
         </aside>
       </div>`;

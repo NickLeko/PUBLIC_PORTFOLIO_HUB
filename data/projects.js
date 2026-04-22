@@ -9,7 +9,7 @@
         "Everything here is labeled as a personal project, portfolio prototype, benchmark harness, retrospective case study, or private/local workflow. Nothing is presented as an employer product or deployed clinical system unless explicitly stated.",
       links: [
         {
-          label: "One-pager",
+          label: "Hiring brief",
           url: "docs/flagship_one_pager.html",
           type: "internal"
         },
@@ -33,35 +33,56 @@
     },
     navigation: [
       { label: "Flagships", href: "#flagship" },
-      { label: "One-pager", href: "docs/flagship_one_pager.html" },
+      { label: "Hiring brief", href: "docs/flagship_one_pager.html" },
+      { label: "Review code", href: "https://github.com/NickLeko" },
       { label: "Contact", href: "#contact" }
     ],
     hero: {
       kicker: "Healthcare AI / AI PM",
       title: "Healthcare AI product work for governed workflows.",
       intro:
-        "I build healthcare AI portfolio artifacts around prior authorization support, clinical-style LLM evaluation, and ICU risk analysis. The common thread is rules-first design, reviewer-facing outputs, and explicit scope boundaries.",
+        "Public healthcare AI artifacts in prior authorization review, clinical-style LLM evaluation, and retrospective ICU risk analysis. Each flagship links code, docs, screenshots, and scope boundaries.",
       note:
-        "Personal projects only: prototype, benchmark harness, and retrospective case study.",
+        "Personal project artifacts only: prototype, benchmark harness, and retrospective case study. Not deployed clinical software.",
       pillars: [
         "Workflow automation",
         "Evaluation discipline",
         "Explicit scope boundaries"
       ]
     },
+    proofStrip: {
+      items: [
+        {
+          title: "3 public flagship artifacts",
+          detail: "Repo, docs, and screenshots are linked from the homepage."
+        },
+        {
+          title: "Rules, refusal, and HITL boundaries",
+          detail: "Missing evidence, reviewer checkpoints, and scope limits stay explicit."
+        },
+        {
+          title: "Reviewable evaluator outputs",
+          detail: "Run manifests, flagged cases, and summary artifacts are public."
+        },
+        {
+          title: "Held-out case-study evidence",
+          detail: "Alert-budget analysis and hospital-level evaluation are documented."
+        }
+      ]
+    },
     ctaBanner: {
       eyebrow: "Recruiter shortcut",
-      heading: "Start with the flagship one-pager.",
+      heading: "Start with the hiring brief.",
       body:
-        "Best first click if you want the three core projects, what each contains, and the scope boundaries in one page.",
+        "Fastest route if you want the three flagship projects, the review surface for each, and the scope boundaries in one page.",
       note:
-        "Then use the homepage for screenshots, case-study detail, and supporting work."
+        "Then use the homepage for screenshots, concrete evidence bullets, and repo or doc links."
     },
     flagshipIntro: {
       eyebrow: "Flagship healthcare AI work",
       heading: "Three flagship projects.",
       body:
-        "These are the main public artifacts: workflow readiness review, clinical-style LLM evaluation, and retrospective ICU alert analysis."
+        "Each flagship surfaces concrete evidence first: closed-state bullets, repo and doc links, and one screenshot tied to the workflow or evaluation surface."
     },
     flagshipProjects: [
       {
@@ -73,13 +94,13 @@
         summary:
           "Rules-first prior auth readiness review for administrative workflows before submission.",
         primaryProof:
-          "Workflow readiness prototype with versioned rules, evidence mapping, and refusal-aware support.",
+          "Repo includes versioned rules, evidence mapping, and refusal-aware readiness states.",
         proofNote:
-          "Turns missing documentation into an explicit review state instead of a hidden guess.",
+          "Missing documentation stays visible as CANNOT_DETERMINE rather than hidden.",
         evidenceBullets: [
-          "READY, NOT_READY, and CANNOT_DETERMINE states with evidence mapping.",
-          "Versioned payer-style rules define what counts as evidence.",
-          "Failure modes document is linked for review."
+          "READY, NOT_READY, and CANNOT_DETERMINE outputs are backed by evidence mapping.",
+          "Versioned payer-style rules and requirement checks are reviewable in the repo.",
+          "Failure modes and scope boundaries are documented alongside the demo."
         ],
         tags: [
           "Workflow automation",
@@ -91,7 +112,7 @@
         whatIBuilt:
           "A deterministic extraction and requirement-checking flow against versioned payer-style rules, with READY, NOT_READY, and CANNOT_DETERMINE outputs plus evidence mapping.",
         whyItMatters:
-          "It makes pre-submit review inspectable and governable instead of relying on a loose judgment about whether a packet looks complete.",
+          "The review path is inspectable: blockers stay explicit instead of being inferred away.",
         proofPoints: [
           "Versioned payer-style rules define what counts as evidence.",
           "Missing evidence triggers refusal-aware outputs instead of guessed approvals.",
@@ -136,6 +157,7 @@
             placeholder: false
           }
         ],
+        closedCardShotIndex: 1,
         onePagerSummary:
           "Rules-first prior auth readiness review using deterministic extraction, requirement-level checks, and explicit refusal when evidence is missing.",
         onePagerWhy:
@@ -153,15 +175,15 @@
         artifactType: "Personal project",
         scopeLabel: "Pre-deployment evaluation artifact",
         summary:
-          "Clinical-style evaluation harness that makes model failures visible before anyone talks about deployment.",
+          "Clinical-style evaluation harness with published artifacts for groundedness, refusal, and safety review.",
         primaryProof:
-          "Benchmark harness with reviewer artifacts, flagged-case review, and safety-first evaluator framing.",
+          "Public benchmark run includes a manifest, scored cases, flagged cases, and reviewer docs.",
         proofNote:
-          "Published model claims are tied to one disclosed run.",
+          "Published claims are tied to one disclosed run, not broad model marketing.",
         evidenceBullets: [
-          "Run manifest, raw generations, scored cases, flagged cases, and summary report.",
-          "Results summary and reviewer guide are linked for review.",
-          "Safety and faithfulness checks are labeled heuristic and incomplete."
+          "Run manifest, raw generations, scored cases, and flagged cases are published.",
+          "Results summary and reviewer guide are linked for direct review.",
+          "Safety and faithfulness checks are explicit heuristics, not deployment claims."
         ],
         tags: [
           "Evaluator strictness",
@@ -173,7 +195,7 @@
         whatIBuilt:
           "A fixed benchmark flow that runs a structured dataset through one prompt template, scores outputs with explicit heuristics, flags concerning cases, and publishes reviewer-friendly artifacts.",
         whyItMatters:
-          "It treats evaluation as product work instead of after-the-fact QA or broad benchmark claims.",
+          "A reviewer can inspect one disclosed run instead of relying on vague benchmark claims.",
         proofPoints: [
           "Public artifacts pin one explicit run with provider, model, run ID, and case count.",
           "Review outputs include raw generations, case scoring, flagged cases, a summary report, and safety docs.",
@@ -218,6 +240,7 @@
             placeholder: false
           }
         ],
+        closedCardShotIndex: 1,
         onePagerSummary:
           "Safety-oriented LLM evaluation harness for clinical-style outputs, focused on groundedness, citations, uncertainty, refusal, and unsafe recommendation flags.",
         onePagerWhy:
@@ -235,14 +258,14 @@
         artifactType: "Personal project",
         scopeLabel: "Held-out-hospital ranking study",
         summary:
-          "Retrospective ICU ranking study framed around alert budgets and operating-point judgment.",
+          "Retrospective ICU ranking study with held-out evaluation and alert-budget analysis.",
         primaryProof:
-          "Retrospective ML case study with held-out evaluation, actionability focus, and non-deployment boundaries.",
+          "Retrospective case study with held-out hospital evaluation and alert-policy analysis.",
         proofNote:
-          "Keeps alert burden and operating-point tradeoffs visible alongside ranking output.",
+          "Alert-budget tradeoffs stay visible alongside ranking output.",
         evidenceBullets: [
           "Six-hour lookback ranks patient-hours for risk in the next two hours.",
-          "Published evaluation uses hospital-level held-out testing.",
+          "Reference evaluation uses hospital-level held-out testing.",
           "Top 0.5 percent of scored test rows shows 13.55x enrichment over test prevalence."
         ],
         tags: [
@@ -255,7 +278,7 @@
         whatIBuilt:
           "A reviewer-facing retrospective pipeline over eICU-CRD using hourly features, BigQuery ML logistic regression, held-out hospital evaluation, and separate alert-policy analysis.",
         whyItMatters:
-          "It frames evaluation as an operational question: not just whether a model ranks well offline, but whether an alerting policy is discussable under real constraints.",
+          "The review surface keeps ranking quality and alert burden visible together.",
         proofPoints: [
           "Uses a six-hour lookback to rank patient-hours for risk in the next two hours.",
           "Published evaluation is hospital-level held-out testing, not a looser random split.",
@@ -300,6 +323,7 @@
             placeholder: false
           }
         ],
+        closedCardShotIndex: 1,
         onePagerSummary:
           "Interpretable ICU risk-ranking case study using eICU-CRD, held-out hospital evaluation, and alert-budget analysis.",
         onePagerWhy:
