@@ -39,7 +39,7 @@ Then open:
 
 ## Update project content
 
-Most content is centralized in [`data/projects.js`](/Users/nicholasleko/projects/PUBLIC_PORTFOLIO_HUB/data/projects.js).
+Most content is centralized in [`data/projects.js`](data/projects.js).
 
 That file controls:
 
@@ -75,7 +75,7 @@ What the capture workflow does:
 - copies the checked-in real Prior Authorization Copilot results screenshot from the sibling repo so the structured output view stays stable and truthful
 - regenerates clean artifact pages for the Clinical AI Eval Sandbox from the local published result files, then captures them
 - regenerates clean artifact pages for the ICU Code Blue Early Warning reference run, then captures them
-- writes output into project-specific folders under [`assets/screenshots`](/Users/nicholasleko/projects/PUBLIC_PORTFOLIO_HUB/assets/screenshots)
+- writes output into project-specific folders under [`assets/screenshots`](assets/screenshots)
 
 Expected sibling repos:
 
@@ -83,9 +83,9 @@ Expected sibling repos:
 - `../clinical-AI-eval_sandbox`
 - `../icu-code-blue-early-warning`
 
-If one of those local repos is missing, the workflow will not fake a screenshot. Use [`assets/screenshots/MANUAL_CAPTURE_GUIDE.md`](/Users/nicholasleko/projects/PUBLIC_PORTFOLIO_HUB/assets/screenshots/MANUAL_CAPTURE_GUIDE.md) for the exact fallback filenames and targets.
+If one of those local repos is missing, the workflow will not fake a screenshot. Use [`assets/screenshots/MANUAL_CAPTURE_GUIDE.md`](assets/screenshots/MANUAL_CAPTURE_GUIDE.md) for the exact fallback filenames and targets.
 
-After new assets are generated, update the matching screenshot entries in [`data/projects.js`](/Users/nicholasleko/projects/PUBLIC_PORTFOLIO_HUB/data/projects.js) if you intentionally rename a file.
+After new assets are generated, update the matching screenshot entries in [`data/projects.js`](data/projects.js) if you intentionally rename a file.
 
 ## Export the recruiter one-pager to PDF
 
