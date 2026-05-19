@@ -34,14 +34,14 @@
     navigation: [
       { label: "Flagships", href: "#flagship" },
       { label: "Hiring brief", href: "docs/flagship_one_pager.html" },
-      { label: "Review code", href: "https://github.com/NickLeko" },
+      { label: "Review flagship repos", href: "#flagship" },
       { label: "Contact", href: "#contact" }
     ],
     hero: {
       kicker: "Healthcare AI / AI PM",
-      title: "Healthcare AI product work for governed workflows.",
+      title: "Healthcare AI workflow automation with evaluation guardrails.",
       intro:
-        "Public healthcare AI artifacts in prior authorization review, clinical-style LLM evaluation, and retrospective ICU risk analysis. Each flagship links code, docs, screenshots, and scope boundaries.",
+        "Public artifacts in prior authorization readiness, clinical-style LLM evaluation, and alert-budget analysis. The common thread is bounded automation: evidence mapping, refusal states, human review, and explicit non-deployment boundaries.",
       note:
         "Personal project artifacts only: prototype, benchmark harness, and retrospective case study. Not deployed clinical software.",
       pillars: [
@@ -347,18 +347,6 @@
         note: "Public supporting systems for interoperability, bounded orchestration, and signal triage.",
         items: [
           {
-            title: "FHIR Referral Intake Review",
-            kind: "Interoperability workflow",
-            visibility: "Public repo",
-            descriptor: "FHIR intake review with source traceability",
-            links: [
-              {
-                label: "Repo",
-                url: "https://github.com/NickLeko/FHIR-Referral-Intake-Review"
-              }
-            ]
-          },
-          {
             title: "Prior Auth Readiness Handoff Agent",
             kind: "Workflow orchestration",
             visibility: "Public repo",
@@ -371,10 +359,22 @@
             ]
           },
           {
+            title: "FHIR Referral Intake Review",
+            kind: "Interoperability workflow",
+            visibility: "Public repo",
+            descriptor: "FHIR referral packet review with source traces, HITL status, and reviewed JSON outputs.",
+            links: [
+              {
+                label: "Repo",
+                url: "https://github.com/NickLeko/FHIR-Referral-Intake-Review"
+              }
+            ]
+          },
+          {
             title: "Daily AI Digest",
             kind: "Operational intelligence",
             visibility: "Public repo",
-            descriptor: "Signal triage for healthcare AI developments",
+            descriptor: "Automated healthcare AI signal triage with source review and routing.",
             links: [
               {
                 label: "Repo",
@@ -385,8 +385,8 @@
         ]
       },
       {
-        title: "Optional experiments",
-        note: "Collapsed so the healthcare AI review path stays primary.",
+        title: "Archived non-core experiments",
+        note: "Collapsed and not part of the healthcare AI reviewer path.",
         collapsed: true,
         items: [
           {

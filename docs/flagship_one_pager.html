@@ -80,7 +80,12 @@
         .join("");
 
       const linkLine = data.site.links
-        .map((link) => `<a href="${escapeHtml(link.url)}">${escapeHtml(link.label)}</a>`)
+        .map((link) => {
+          const href = link.type === "internal" && link.url.startsWith("docs/")
+            ? `../${link.url}`
+            : link.url;
+          return `<a href="${escapeHtml(href)}">${escapeHtml(link.label)}</a>`;
+        })
         .join('<span class="divider">|</span>');
 
       root.innerHTML = `

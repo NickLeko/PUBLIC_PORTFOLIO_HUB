@@ -33,7 +33,7 @@
     document.getElementById("site-nav").innerHTML = data.navigation
       .map((item) => {
         const isInternal = item.href.startsWith("#") || item.href.endsWith(".html");
-        const extraClass = item.label === "Review code" ? ` class="nav-review-link"` : "";
+        const extraClass = item.label === "Review flagship repos" ? ` class="nav-review-link"` : "";
         return `<a${extraClass} href="${esc(item.href)}"${isInternal ? "" : ` ${ext}`}>${esc(item.label)}</a>`;
       })
       .join("");
@@ -55,7 +55,6 @@
       .join("");
 
     const hiringBrief = siteLink("Hiring brief");
-    const github = siteLink("GitHub");
     const email = siteLink("Email");
 
     document.getElementById("hero").innerHTML = `
@@ -66,7 +65,7 @@
           <p class="hero-sub">${esc(h.intro)}</p>
           <div class="hero-actions">
             ${hiringBrief ? `<a class="btn btn-primary" href="${esc(hiringBrief.url)}">Open hiring brief</a>` : ""}
-            ${github ? `<a class="btn btn-secondary" href="${esc(github.url)}" ${ext}>Review code</a>` : ""}
+            <a class="btn btn-secondary" href="#flagship">Review flagship repos</a>
             <a class="btn btn-ghost" href="#flagship">See flagship work</a>
             ${email ? `<a class="btn btn-ghost" href="${esc(email.url)}">Contact</a>` : ""}
           </div>
@@ -99,7 +98,6 @@
   function renderCta() {
     const cta = data.ctaBanner;
     const hiringBrief = siteLink("Hiring brief");
-    const github = siteLink("GitHub");
     const linkedin = siteLink("LinkedIn");
 
     document.getElementById("recruiter-cta").innerHTML = `
@@ -112,7 +110,7 @@
         </div>
         <div class="cta-band-actions">
           ${hiringBrief ? `<a class="btn btn-primary" href="${esc(hiringBrief.url)}">Open hiring brief →</a>` : ""}
-          ${github ? `<a class="btn btn-ghost" href="${esc(github.url)}" ${ext}>Review code</a>` : ""}
+          <a class="btn btn-ghost" href="#flagship">Review flagship repos</a>
           ${linkedin ? `<a class="btn btn-ghost" href="${esc(linkedin.url)}" ${ext}>${esc(linkedin.label)}</a>` : ""}
         </div>
       </div>`;
