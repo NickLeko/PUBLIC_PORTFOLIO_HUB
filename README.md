@@ -10,6 +10,17 @@ The site is intentionally centered on three flagship portfolio artifacts:
 
 The homepage is built to explain the portfolio story quickly and honestly. The supporting projects and automation sections stay secondary on purpose so the flagship narrative remains the clear center.
 
+## Canonical reviewer route
+
+Use this repo as the public starting point for portfolio review.
+
+1. Start with `index.html` for the three flagship projects, screenshots, proof bullets, and limitations.
+2. Open `docs/flagship_one_pager.html` for the recruiter/hiring-manager one-page route.
+3. Follow the flagship repo links only after the hub has established the scope: portfolio prototype, benchmark harness, and retrospective case study.
+4. Treat FHIR Referral Intake Review, Prior Auth Readiness Handoff Agent, and Daily AI Digest as supporting projects, not replacements for the three flagships.
+
+Nothing in this route should be read as production deployment, PHI handling, medical advice, payer integration, FDA readiness, or clinical decision support.
+
 ## What is in this repo
 
 - `index.html`: main portfolio page
