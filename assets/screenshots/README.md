@@ -19,7 +19,7 @@ Workflow:
 The automated workflow uses a mix of:
 
 - live Playwright capture for the Prior Authorization Copilot Streamlit app
-- a direct copy of the checked-in real Prior Authorization Copilot results screenshot for the structured-output state
+- a direct copy of the checked-in current Prior Authorization Copilot results capture for the compact evidence-to-decision trace
 - generated artifact pages for the eval sandbox and ICU case study, built from real local result files before capture
 
 If a sibling repo or artifact set is missing, do not invent replacements. Use the manual guide, restore the source repo, and rerun the workflow.

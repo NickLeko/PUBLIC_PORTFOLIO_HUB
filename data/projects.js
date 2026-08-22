@@ -41,7 +41,7 @@
       kicker: "Healthcare AI / AI PM",
       title: "Healthcare AI workflow automation with evaluation guardrails.",
       intro:
-        "Public artifacts in prior authorization readiness, clinical-style LLM evaluation, and alert-budget analysis. The common thread is bounded automation: evidence mapping, refusal states, human review, and explicit non-deployment boundaries.",
+        "Public artifacts in prior authorization readiness, clinical-style LLM evaluation, and alert-budget analysis. The common thread is bounded automation: deterministic evidence mapping, refusal and review states, policy provenance, human oversight, and explicit non-deployment boundaries.",
       note:
         "Personal project artifacts only: prototype, benchmark harness, and retrospective case study. Not deployed clinical software.",
       pillars: [
@@ -57,8 +57,8 @@
           detail: "Repo, docs, and screenshots are linked from the homepage."
         },
         {
-          title: "Rules, refusal, and HITL boundaries",
-          detail: "Missing evidence, reviewer checkpoints, and scope limits stay explicit."
+          title: "Policy provenance and refusal boundaries",
+          detail: "One narrow Aetna pathway is source-backed; demo trust, missing evidence, and human review stay explicit."
         },
         {
           title: "Reviewable evaluator outputs",
@@ -90,40 +90,44 @@
         title: "Prior Authorization Copilot",
         status: "Portfolio prototype",
         artifactType: "Personal project",
-        scopeLabel: "Administrative decision support only",
+        scopeLabel: "Administrative readiness only",
         summary:
-          "Rules-first prior auth readiness review for administrative workflows before submission.",
+          "Deterministic prior-authorization readiness review with evidence-to-rule traceability before submission.",
         primaryProof:
-          "Repo includes versioned rules, evidence mapping, and refusal-aware readiness states.",
+          "The v1.0 rulebook maps note evidence to extracted facts, explicit operators, requirement results, and an overall decision.",
         proofNote:
-          "Missing documentation stays visible as CANNOT_DETERMINE rather than hidden.",
+          "Four outcomes keep missing, failing, and unevaluable evidence distinct; verified trust is scoped to one payer/procedure pathway.",
         evidenceBullets: [
-          "READY, NOT_READY, and CANNOT_DETERMINE outputs are backed by evidence mapping.",
-          "Versioned payer-style rules and requirement checks are reviewable in the repo.",
-          "Failure modes and scope boundaries are documented alongside the demo."
+          "READY, NOT_READY, CANNOT_DETERMINE, and NEEDS_REVIEW follow fail-closed status semantics.",
+          "Only Aetna:MRI_LUMBAR has verified official-policy provenance, limited to one CPB 0236 radiculopathy branch.",
+          "MRI_CERVICAL, MRI_KNEE, and CPAP_DEVICE remain synthetic demo rules and do not inherit verified trust."
         ],
         tags: [
-          "Workflow automation",
-          "Rules-first governance",
-          "Refusal-aware support"
+          "Deterministic evaluation",
+          "Policy provenance",
+          "Refusal + human review"
         ],
         problemStatement:
-          "Prior auth work breaks down when documentation gaps are discovered late, after staff have already spent time reviewing or drafting the submission.",
+          "Prior auth work breaks down when documentation gaps or policy mismatches surface late and reviewers cannot trace how note evidence produced a readiness result.",
         whatIBuilt:
-          "A deterministic extraction and requirement-checking flow against versioned payer-style rules, with READY, NOT_READY, and CANNOT_DETERMINE outputs plus evidence mapping.",
+          "A deterministic extraction and evaluation flow against payer-qualified, versioned rules. It exposes note evidence → extracted fact → rule/operator → requirement result → overall decision, with explicit READY, NOT_READY, CANNOT_DETERMINE, and NEEDS_REVIEW outcomes.",
         whyItMatters:
-          "The review path is inspectable: blockers stay explicit instead of being inferred away.",
+          "The review path is inspectable and reproducible: blockers stay explicit, trust stays procedure-scoped, and policy evidence is not silently generalized.",
         proofPoints: [
-          "Versioned payer-style rules define what counts as evidence.",
-          "Missing evidence triggers refusal-aware outputs instead of guessed approvals.",
-          "Structured evidence mapping keeps each blocker traceable.",
-          "Public artifacts include rules, contracts, failure modes, a model card, and a local demo UI."
+          "Evaluation is deterministic rather than free-form LLM adjudication; immutable releases preserve payer-qualified rule identity and make rulebook changes reviewable.",
+          "The verified pathway is grounded in Aetna Clinical Policy Bulletin 0236 — Magnetic Resonance Imaging (MRI) and Computed Tomography (CT) of the Spine.",
+          "That implemented branch requires persistent back pain with radiculopathy, objective motor/reflex findings in an explicit nerve-root distribution, at least six weeks of qualifying conservative therapy, and explicit lack of improvement.",
+          "The verified chain is official policy → policy metadata/hash → clause mapping → structured rule → extracted evidence → deterministic evaluation.",
+          "Requirement-level evidence spans, explicit operators, and fail-closed status semantics keep each result traceable.",
+          "Source hashing and scoped policy-drift monitoring can downgrade the affected payer/procedure from verified to demo when provenance checks fail.",
+          "Adversarial extraction tests, regression cases, and generated artifacts make representative outputs reproducible."
         ],
         limitations: [
-          "Not approval prediction and not a clinical decision tool.",
-          "No EHR, payer, or clearinghouse integration.",
-          "Synthetic demo cases only; limited procedure coverage.",
-          "Policy-drift monitoring applies only to configured sources."
+          "Administrative readiness prototype only: not approval prediction, medical-necessity adjudication, or clinical decision support.",
+          "Only Aetna:MRI_LUMBAR is verified, and only for CPB 0236's persistent-back-pain-with-radiculopathy alternative; other bulletin indications are not modeled.",
+          "MRI_CERVICAL, MRI_KNEE, and CPAP_DEVICE remain synthetic/demo pathways; all bundled cases are synthetic.",
+          "CPB 0236 does not state that every listed modality or a specific combination is mandatory. Under the prototype's interpretation, moderate activity, analgesics, NSAIDs/anti-inflammatory medication, or muscle relaxants can establish therapy type; qualifying duration must be individually documented, and shorter sequential courses are not summed unless overall duration is explicit.",
+          "No production PHI handling, payer/EHR/clearinghouse integration, or production-grade policy management; drift monitoring is scoped and governance-only."
         ],
         links: [
           {
@@ -143,29 +147,29 @@
           {
             src: "assets/screenshots/prior-auth/prior-auth-main-desktop.png",
             alt:
-              "Prior Authorization Copilot intake and review surface with demo cases, payer inputs, and bounded administrative workflow framing.",
+              "Prior Authorization Copilot current intake and governance surface with verified and demo trust labels, versioned rulebook status, and synthetic demo cases.",
             title: "Main workflow surface",
-            note: "Live Streamlit capture of the intake and review flow.",
+            note: "Live Streamlit capture of the current scope, governance, and intake flow.",
             placeholder: false
           },
           {
             src: "assets/screenshots/prior-auth/prior-auth-results-desktop.png",
             alt:
-              "Prior Authorization Copilot results state showing refusal-first readiness output, blockers, extracted facts, and audit detail.",
-            title: "Results and blockers",
-            note: "Real showcase-case capture of the structured outputs surface.",
+              "Prior Authorization Copilot CANNOT_DETERMINE result with a compact evidence-to-fact-to-rule-to-requirement decision trace.",
+            title: "Deterministic decision trace",
+            note: "Real current-app capture of evidence → fact → rule/operator → status.",
             placeholder: false
           }
         ],
         closedCardShotIndex: 1,
         onePagerSummary:
-          "Rules-first prior auth readiness review using deterministic extraction, requirement-level checks, and explicit refusal when evidence is missing.",
+          "Deterministic prior-auth readiness with one verified official-policy pathway. Administrative readiness prototype, not approval prediction or clinical decision support.",
         onePagerWhy:
-          "Shows workflow realism, refusal semantics, and auditability in an admin-heavy healthcare problem.",
+          "Shows healthcare workflow realism, deterministic product architecture, refusal-first design, policy provenance, and auditability.",
         onePagerSignals: [
-          "Workflow realism",
-          "Refusal-first design",
-          "Governance and auditability"
+          "Deterministic architecture",
+          "Policy provenance",
+          "Refusal + auditability"
         ]
       },
       {

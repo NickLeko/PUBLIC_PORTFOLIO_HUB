@@ -19,11 +19,11 @@ Required files:
 - Save as `prior-auth-results-desktop.png`
   Viewport: `desktopTall`
   Destination: `assets/screenshots/prior-auth`
-  Target: Results state for the refusal-style showcase case through Audit Summary.
+  Target: Current CANNOT_DETERMINE results state with the compact evidence-to-fact-to-rule-to-requirement trace visible.
 - Save as `prior-auth-governance-desktop.png`
   Viewport: `desktop`
   Destination: `assets/screenshots/prior-auth`
-  Target: Policy Monitor section showing configured source status and drift review context.
+  Target: Governance Monitor and Rulebook Governance sections showing the scoped source status and active v1.0 release.
 - Save as `prior-auth-main-mobile.png`
   Viewport: `mobile`
   Destination: `assets/screenshots/prior-auth`

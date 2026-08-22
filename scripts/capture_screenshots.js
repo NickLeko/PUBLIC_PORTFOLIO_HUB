@@ -829,7 +829,7 @@ async function capturePriorAuth(browser, project, appUrl) {
 
   try {
     await desktop.page.goto(appUrl, { waitUntil: "domcontentloaded" });
-    await desktop.page.getByRole("heading", { name: "PA Readiness Copilot" }).waitFor({ timeout: 20000 });
+    await desktop.page.getByRole("heading", { name: "Prior Authorization Readiness Copilot" }).waitFor({ timeout: 20000 });
     await desktop.page.waitForTimeout(4500);
     await desktop.page.screenshot({
       path: path.join(outputDir, "prior-auth-main-desktop.png"),
@@ -837,8 +837,8 @@ async function capturePriorAuth(browser, project, appUrl) {
     });
     console.log("Saved assets/screenshots/prior-auth/prior-auth-main-desktop.png");
 
-    const policyHeading = desktop.page.getByRole("heading", { name: "Policy Monitor (Configured Sources)" });
-    const featuredHeading = desktop.page.getByRole("heading", { name: "Featured Showcase Cases" });
+    const policyHeading = desktop.page.getByRole("heading", { name: "Governance Monitor" });
+    const featuredHeading = desktop.page.getByRole("heading", { name: "Featured Demo Cases" });
     await policyHeading.waitFor({ timeout: 20000 });
     await featuredHeading.waitFor({ timeout: 20000 });
 
@@ -871,7 +871,7 @@ async function capturePriorAuth(browser, project, appUrl) {
   const mobile = await createPage(browser, "mobile");
   try {
     await mobile.page.goto(appUrl, { waitUntil: "domcontentloaded" });
-    await mobile.page.getByRole("heading", { name: "PA Readiness Copilot" }).waitFor({ timeout: 20000 });
+    await mobile.page.getByRole("heading", { name: "Prior Authorization Readiness Copilot" }).waitFor({ timeout: 20000 });
     await mobile.page.waitForTimeout(4500);
     await mobile.page.screenshot({
       path: path.join(outputDir, "prior-auth-main-mobile.png"),
@@ -882,7 +882,7 @@ async function capturePriorAuth(browser, project, appUrl) {
     await mobile.context.close();
   }
 
-  const repoResultsScreenshot = path.join(repoPath, "docs/images/prior-auth-copilot-demo.png");
+  const repoResultsScreenshot = path.join(repoPath, "assets/readme/prior-auth-readiness-demo.png");
   const outputResultsScreenshot = path.join(outputDir, "prior-auth-results-desktop.png");
 
   if (fs.existsSync(repoResultsScreenshot)) {

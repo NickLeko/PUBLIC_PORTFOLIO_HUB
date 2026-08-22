@@ -19,6 +19,8 @@ Use this repo as the public starting point for portfolio review.
 3. Follow the flagship repo links only after the hub has established the scope: portfolio prototype, benchmark harness, and retrospective case study.
 4. Treat FHIR Referral Intake Review, Prior Auth Readiness Handoff Agent, and Daily AI Digest as supporting projects, not replacements for the three flagships.
 
+The Prior Authorization Copilot is presented as a deterministic administrative-readiness prototype. Only `Aetna:MRI_LUMBAR` has verified official-policy provenance, limited to one persistent-back-pain-with-radiculopathy pathway in Aetna CPB 0236; the cervical MRI, knee MRI, and CPAP pathways remain synthetic demos.
+
 Nothing in this route should be read as production deployment, PHI handling, medical advice, payer integration, FDA readiness, or clinical decision support.
 
 ## What is in this repo
@@ -83,7 +85,7 @@ npm run screenshots:check
 What the capture workflow does:
 
 - starts the local Prior Authorization Copilot Streamlit app and captures polished desktop and mobile screenshots
-- copies the checked-in real Prior Authorization Copilot results screenshot from the sibling repo so the structured output view stays stable and truthful
+- copies the checked-in current Prior Authorization Copilot results capture from the sibling repo so the compact evidence-to-decision trace stays stable and truthful
 - regenerates clean artifact pages for the Clinical AI Eval Sandbox from the local published result files, then captures them
 - regenerates clean artifact pages for the ICU Code Blue Early Warning reference run, then captures them
 - writes output into project-specific folders under [`assets/screenshots`](assets/screenshots)

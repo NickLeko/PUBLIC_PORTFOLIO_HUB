@@ -41,14 +41,14 @@ module.exports = {
           id: "prior-auth-results-desktop",
           filename: "prior-auth-results-desktop.png",
           viewport: "desktopTall",
-          summary: "Results view after loading the refusal-first showcase case",
+          summary: "Current CANNOT_DETERMINE result with the compact deterministic decision trace",
           auto: true
         },
         {
           id: "prior-auth-governance-desktop",
           filename: "prior-auth-governance-desktop.png",
           viewport: "desktop",
-          summary: "Policy monitor and governance-oriented review surface",
+          summary: "Governance monitor and active immutable rulebook release",
           auto: true
         },
         {
@@ -70,13 +70,13 @@ module.exports = {
           filename: "prior-auth-results-desktop.png",
           viewport: "desktopTall",
           destination: "assets/screenshots/prior-auth",
-          target: "Results state for the refusal-style showcase case through Audit Summary."
+          target: "Current CANNOT_DETERMINE results state with the compact evidence-to-fact-to-rule-to-requirement trace visible."
         },
         {
           filename: "prior-auth-governance-desktop.png",
           viewport: "desktop",
           destination: "assets/screenshots/prior-auth",
-          target: "Policy Monitor section showing configured source status and drift review context."
+          target: "Governance Monitor and Rulebook Governance sections showing the scoped source status and active v1.0 release."
         },
         {
           filename: "prior-auth-main-mobile.png",
